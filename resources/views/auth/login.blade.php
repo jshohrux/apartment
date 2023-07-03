@@ -80,11 +80,11 @@
                       />
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bold ms-1">Vuexy</span>
+                  <span class="app-brand-text demo text-body fw-bold ms-1">JDPU</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-1 pt-2">Welcome to Vuexy! 👋</h4>
+              <h4 class="mb-1 pt-2">Xush kelibsiz! 👋</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
               @if(session()->has('error'))
                 <h6 style="color: red">{{session()->get('error')}}</h6>
@@ -92,7 +92,7 @@
               <form id="formAuthentication" method="POST" action="{{ route('login') }}" class="mb-3">
                 @csrf
                 <div class="mb-3">
-                  <label for="phone-mask" class="form-label">Telefon raqam</label>
+                  <label for="phone-mask" class="form-label">Telefon raqami</label>
                   <input type="text" class="form-control @error('email') is-invalid @enderror" id="phone-mask" name="phone" value="+998"/>
                   @error('phone')
                     <span class="invalid-feedback" role="alert">
@@ -104,7 +104,7 @@
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Parol</label>
                     <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
+                      <small>Parol esdan chiqdimi?</small>
                     </a>
                   </div>
                   <div class="input-group input-group-merge">
@@ -127,23 +127,23 @@
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember" />
-                    <label class="form-check-label" for="remember"> Remember Me </label>
+                    <label class="form-check-label" for="remember">Meni eslab qol</label>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Kirish</button>
                 </div>
               </form>
 
               <p class="text-center">
-                <span>New on our platform?</span>
+                <span>Tizimda yangimisiz?</span>
                 <a href="auth-register-basic.html">
-                  <span>Create an account</span>
+                  <span>Ro'yxatdan o'tish</span>
                 </a>
               </p>
 
               <div class="divider my-4">
-                <div class="divider-text">or</div>
+                <div class="divider-text">yoki</div>
               </div>
 
               <div class="d-flex justify-content-center">

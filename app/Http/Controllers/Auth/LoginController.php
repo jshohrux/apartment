@@ -44,7 +44,10 @@ class LoginController extends Controller
         $username = $request->get('phone');
         $username = preg_replace('/[^0-9]+/', '', $username);
         if (! Auth::attempt(['phone' => $username, 'password' => $request->password])) {
-            return redirect()->back()->with('error', 'Username yoki parol xato');
+            return redirect()->back()->with('error', 'Telefon raqami yoki parol xato');
+        }
+        if(auth()->user()->role_id==1){
+            return redirect()->route('admin.dashboard');
         }
         return redirect('home');
     }
