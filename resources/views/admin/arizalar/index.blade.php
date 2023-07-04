@@ -7,66 +7,44 @@
 @section('content')
     <!-- Content -->
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Talabalar</h4>
+        <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Arizalar ro'yxati</h4>
         <div class="card">
-            <h5 class="card-header">Dark Table head</h5>
+            <h5 class="card-header">Arizalar</h5>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <caption class="ms-4">
-                        Talabalar ro'yxati
+                        Arizalar ro'yxati
                     </caption>
                     <thead class="table">
                     <tr>
                         <th>Ism familya</th>
                         <th>Telefon raqami</th>
-                        <th>Users</th>
+                        <th>Fakulteti</th>
+                        <th>Mutaxasislik</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @foreach($students as $student)
+                    @foreach($arizalar as $ariza)
                         <tr>
                         <td>
                             <strong>
-                                {{$student->name}}
+                                {{$ariza->user->name}}
                             </strong>
                         </td>
                         <td>
-                            +{{$student->phone}}
+                            +{{$ariza->user->phone}}
                         </td>
                         <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                <li
-                                    data-bs-toggle="tooltip"
-                                    data-popup="tooltip-custom"
-                                    data-bs-placement="top"
-                                    class="avatar avatar-xs pull-up"
-                                    title="Lilian Fuller"
-                                >
-                                    <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                                </li>
-                                <li
-                                    data-bs-toggle="tooltip"
-                                    data-popup="tooltip-custom"
-                                    data-bs-placement="top"
-                                    class="avatar avatar-xs pull-up"
-                                    title="Sophia Wilkerson"
-                                >
-                                    <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                                </li>
-                                <li
-                                    data-bs-toggle="tooltip"
-                                    data-popup="tooltip-custom"
-                                    data-bs-placement="top"
-                                    class="avatar avatar-xs pull-up"
-                                    title="Christina Parker"
-                                >
-                                    <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                                </li>
-                            </ul>
+                            {{$ariza->faculty->name}}
                         </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td>
+                            {{$ariza->specialty->name}}
+                        </td>
+                        <td>
+                            <span class="badge bg-label-primary me-1">Ko'rib chiqilmoqda</span>
+                        </td>
                         <td>
                             <a href="#"><i class="ti ti-pencil me-1"></i></a>
                             <a href="$"> <i class="ti ti-trash me-1"></i></a>

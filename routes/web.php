@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +25,9 @@ Route::get('test', function(){
     return view('index');
 })->name('test')->middleware(['auth','is_admin']);
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/dashboard',[AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('students',[StudentController::class, 'index'])->name('students');
-});
+Route::get('mening-arizalarim', [StudentController::class, 'my'])->name('my');
+Route::get('ariza-yuborish',[StudentController::class, 'send_form'])->name('ariza_yuborish');
+Route::post('ariza-saqlash',[StudentController::class, 'store_form'])->name('ariza_saqlash');
 
-Route::get('test-reg', function(){
-    return view('auth.register_basic');
-});
+
+require __DIR__.'/admin.php';

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed">
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" data-theme="theme-default" data-template="vertical-menu-template" data-assets-path="{{asset('static/assets')}}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>

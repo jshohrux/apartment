@@ -113,7 +113,7 @@
                                 <span id="basic-icon-default-phone2" class="input-group-text">
                                   <i class="ti ti-user"></i>
                                 </span>
-                                <input value="{{old('name')}}" type="text" class="form-control" id="name" name="name" placeholder="Ism famikyangizni kiriting" />
+                                <input value="{{old('name')}}" type="text" class="form-control" id="name" name="name" placeholder="Ism familyangizni kiriting" />
                             </div>
                             @error('name')
                             <div class="fv-plugins-message-container invalid-feedback">
