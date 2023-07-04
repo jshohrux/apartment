@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 
@@ -27,4 +28,9 @@ Route::get('test', function(){
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard',[AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('students',[StudentController::class, 'index'])->name('students');
+});
+
+Route::get('test-reg', function(){
+    return view('auth.register_basic');
 });

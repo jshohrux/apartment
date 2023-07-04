@@ -49,10 +49,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
+        $phone = $data['phone'];
+        $data['phone'] = preg_replace('/[^0-9]+/', '', $phone);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'min:12', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ],
+        [
+            'name.required'=>'Maydon to\'ldirilishi shart',
+            'phone.required'=>'Maydon to\'ldirilishi shart',
+            'phone.unique'=>'Bunday telefon raqamiga ega foydalanuvchi mavjud',
+            'password.required'=>'Maydon to\'ldirilishi shart',
+            'password.confirmed'=>'Parollar mos kelmadi',
+            'phone.min'=>'Telefon raqami xato kiritildi',
         ]);
     }
 
@@ -64,10 +75,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $phone = $data['phone'];
+        $data['phone'] = preg_replace('/[^0-9]+/', '', $phone);
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            'email'=>'test@test.com',
+            'role_id'=>2,
         ]);
     }
 }

@@ -44,12 +44,24 @@ class LoginController extends Controller
         $username = $request->get('phone');
         $username = preg_replace('/[^0-9]+/', '', $username);
         if (! Auth::attempt(['phone' => $username, 'password' => $request->password])) {
-            return redirect()->back()->with('error', 'Telefon raqami yoki parol xato');
+            $notification = [
+                'message' => 'Telefon raqami yoki parol xato',
+                'alert-type' => 'error',
+            ];
+            return redirect()->back()->with($notification);
         }
         if(auth()->user()->role_id==1){
-            return redirect()->route('admin.dashboard');
+            $notification = [
+                'message' => 'Tizimga muvofaqiyatli kirdingiz',
+                'alert-type' => 'success',
+            ];
+            return redirect()->route('admin.dashboard')->with($notification);
         }
-        return redirect('home');
+        $notification = [
+            'message' => 'Tizimga muvofaqiyatli kirdingiz',
+            'alert-type' => 'success',
+        ];
+        return redirect()->route('home')->with($notification);
     }
 
     public function username()

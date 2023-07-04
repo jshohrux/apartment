@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/node-waves/node-waves.css')}}" />
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/typeahead-js/typeahead.css')}}" />
 
+    <link rel="stylesheet" href="{{asset('static/assets/vendor/css/pages/cards-advance.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/toastr/toastr.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/animate-css/animate.css')}}}" />
+
     <!-- Vendor -->
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css')}}" />
 
@@ -137,7 +141,7 @@
 
               <p class="text-center">
                 <span>Tizimda yangimisiz?</span>
-                <a href="auth-register-basic.html">
+                <a href="{{ route('register') }}">
                   <span>Ro'yxatdan o'tish</span>
                 </a>
               </p>
@@ -199,6 +203,32 @@
             document.getElementById('phone-mask'), {
                 mask: '+{998}00 000-00-00'
             });
+    </script>
+
+    <script src="{{asset('static/assets/js/ui-toasts.js')}}"></script>
+    <script src="{{asset('static/assets/vendor/libs/toastr/toastr.js')}}"></script>
+    <script>
+        @if (Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}"
+
+        switch (type) {
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
+
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
     </script>
   </body>
 </html>
