@@ -42,6 +42,12 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::group(['prefix' => 'arizalar'], function () {
             Route::get('',[AdminController::class, 'arizalar'])->name('arizalar');
+            Route::get('edit/{id}', [AdminController::class, 'edit'])->name('ariza_edit');
+            Route::put('update/{id}', [AdminController::class, 'update'])->name('ariza_update');
+
+            Route::get('new',[AdminController::class, 'new'])->name('new');
+            Route::get('accepted',[AdminController::class, 'accepted'])->name('accepted');
+            Route::get('rejected',[AdminController::class, 'rejected'])->name('rejected');
         });
     });
 });

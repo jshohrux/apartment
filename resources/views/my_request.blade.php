@@ -1,5 +1,4 @@
-@extends('admin.layouts.base')
-@section('content')
+@extends('layouts.base')
 @section('style')
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}" />
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}" />
@@ -7,43 +6,55 @@
 @endsection
 @section('content')
     <!-- Content -->
+
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Fakultetlar</h4>
+        <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Mening arizalarim</h4>
         <div class="card">
-            {{-- <h5 class="card-header">Fakultetlar</h5> --}}
-            <div class="d-flex justify-content-between">
-                <h5 class="card-header">Fakultetlar</h5>
-                <div class="dt-buttons">
-                    <a href="{{route('faculty.create')}}" class="btn btn-success me-3 mt-3" tabindex="0" aria-haspopup="dialog" aria-expanded="false"><span>
-                        <i class="ti ti-plus me-1 ti-xs"></i>Qo'shish</span>
-                    </a>
-                </div>
-            </div>
+            <h5 class="card-header">Arizalar</h5>
             <div class="table-responsive text-nowrap">
                 <table class="table">
+                    <caption class="ms-4">
+                        Arizalar ro'yxati
+                    </caption>
                     <thead class="table">
-                        <caption class="ms-4">
-                            Fakultetlar ro'yxati
-                        </caption>
-                    <tr>
-                        <th>Fakultet nomi</th>
-                        <th>Amallar</th>
-                    </tr>
+                        <tr>
+                            <th>Ariza ID</th>
+                            <th>Ism familya</th>
+                            <th>Telefon raqami</th>
+                            <th>Status</th>
+                            <th>Amallar</th>
+                        </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    {{-- @foreach($faculties as $faculty)
+                    @foreach($arizalar as $ariza)
                         <tr>
-                        <td>
-                            <strong>
-                                {{$faculty->name}}
-                            </strong>
-                        </td>
-                        <td>
-                            <a href="{{route('faculty.edit',$faculty->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach --}}
+                            <td>
+                                {{$ariza->id}}
+                            </td>
+                            <td>
+                                <strong>
+                                    {{$ariza->user->name}}
+                                </strong>
+                            </td>
+                            <td>
+                                +{{$ariza->user->phone}}
+                            </td>
+                            <td>
+                                @if($ariza->status==0)
+                                    <span class="badge bg-label-primary me-1">Ko'rib chiqilmoqda</span>
+                                @elseif($ariza->status==1)
+                                    <span class="badge bg-label-success me-1">Qabul qilindi</span>
+                                @else
+                                    <span class="badge bg-label-danger me-1">Rad etildi</span>
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="{{route('my_show',$ariza->id)}}">
+                                    <i class="ti ti-eye text-white"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -58,5 +69,4 @@
      <script src="{{asset('static/assets/vendor/libs/datatables-responsive/datatables.responsive.js')}}"></script>
      <script src="{{asset('static/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js')}}"></script>
      <script src="{{asset('static/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.js')}}"></script>
-@endsection
 @endsection

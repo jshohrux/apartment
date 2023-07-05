@@ -40,7 +40,7 @@
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{asset('static/assets/vendor/css/pages/cards-advance.css')}}" />
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/toastr/toastr.css')}}" />
-    <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/animate-css/animate.css')}}}" />
+    {{-- <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/animate-css/animate.css')}}}" /> --}}
     <!-- Helpers -->
     <script src="{{asset('static/assets/vendor/js/helpers.js')}}"></script>
 

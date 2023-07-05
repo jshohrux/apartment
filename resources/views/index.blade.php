@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('content')
 <div class="container-fluid flex-grow-1 container-p-y">
-    @if (Session::has('success'))
-        <div class="alert alert-info">{{ Session::get('success') }}</div>
+    @if(!empty($success))
+        <div class="alert alert-success">{{ $success }}</div>
     @endif
   </div>
 @endsection

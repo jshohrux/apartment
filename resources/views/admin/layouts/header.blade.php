@@ -44,16 +44,13 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Ma'lumotlar</span>
+        </li>
         <li class="menu-item {{ request()->is('admin/dashboard*') ? 'active' : ''}}">
             <a href="{{route('admin.dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Bosh sahifa">Bosh sahifa</div>
-            </a>
-        </li>
-        <li class="menu-item {{ request()->is('admin/arizalar*') ? 'active' : ''}}">
-            <a href="{{route('arizalar')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-file"></i>
-                <div data-i18n="Arizalar">Arizalar</div>
             </a>
         </li>
         <li class="menu-item {{ request()->is('admin/students*') ? 'active' : ''}}">
@@ -81,5 +78,26 @@
                 <div data-i18n="Mutaxasisliklar">Mutaxasisliklar</div>
             </a>
         </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Arizalar</span>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/arizalar/new*') ? 'active' : ''}}">
+            <a href="{{route('new')}}" class="menu-link">
+              <div>Yangi arizalar</div>
+              <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
+            </a>
+          </li>
+          <li class="menu-item {{ request()->is('admin/arizalar/accepted*') ? 'active' : ''}}">
+            <a href="{{route('accepted')}}" class="menu-link">
+              <div>Tasdiqlangan arizalar</div>
+            </a>
+          </li>
+          <li class="menu-item {{ request()->is('admin/arizalar/rejected*') ? 'active' : ''}}">
+            <a href="{{route('rejected')}}" class="menu-link">
+              <div>Rad etilgan arizalar</div>
+            </a>
+          </li>
     </ul>
 </aside>

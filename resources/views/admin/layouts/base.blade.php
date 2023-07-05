@@ -95,6 +95,7 @@
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
+@yield('script')
 <script src="{{asset('static/assets/vendor/libs/jquery/jquery.js')}}"></script>
 <script src="{{asset('static/assets/vendor/libs/popper/popper.js')}}"></script>
 <script src="{{asset('static/assets/vendor/js/bootstrap.js')}}"></script>

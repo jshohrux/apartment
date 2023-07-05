@@ -52,8 +52,16 @@ class StudentController extends Controller
 
     public function my(Request $request){
         $user = Auth::user();
-        $ariza = Ariza::where('user_id',$user->id)->get();
-        return view('my_request', compact('ariza'));
+        $arizalar = Ariza::where('user_id',$user->id)->get();
+        return view('my_request', compact('arizalar'));
+    }
+
+    public function my_show(Request $request, $id){
+        $my_ariza = Ariza::findOrfail($id);
+        if($my_ariza->user_id!=auth()->id()){
+            return abort(403);
+        }
+        return view('show', compact('my_ariza'));
     }
 
 

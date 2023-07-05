@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->integer('status')->default(0);
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('apartment_id')->nullable();
+            $table->integer('floor')->nullable();
             $table->timestamps();
         });
     }

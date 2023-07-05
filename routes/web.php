@@ -28,6 +28,7 @@ Route::get('test', function(){
 Route::get('mening-arizalarim', [StudentController::class, 'my'])->name('my');
 Route::get('ariza-yuborish',[StudentController::class, 'send_form'])->name('ariza_yuborish');
 Route::post('ariza-saqlash',[StudentController::class, 'store_form'])->name('ariza_saqlash');
+Route::get('mening-arizalarim/{id}', [StudentController::class, 'my_show'])->name('my_show');
 
 
 require __DIR__.'/admin.php';

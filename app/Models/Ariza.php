@@ -18,6 +18,8 @@ class Ariza extends Model
         'city',
         'status',
         'description',
+        'apartment_id',
+        'floor',
     ];
 
     public function user(){
@@ -30,5 +32,9 @@ class Ariza extends Model
 
     public function faculty(){
         return $this->belongsTo(Faculty::class, 'faculty_id');
+    }
+
+    public function apartment(){
+        return $this->belongsTo(Apartment::class, 'apartment_id');
     }
 }

@@ -43,11 +43,26 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <li class="menu-item">
-            <a href="app-email.html" class="menu-link">
+        <li class="menu-item {{ request()->is('home*') ? 'active' : ''}}">
+            <a href="{{route('home')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-home"></i>
+                <div>Bosh sahifa</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('ariza-yuborish*') ? 'active' : ''}}">
+            <a href="{{route('ariza_yuborish')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-mail"></i>
+                <div data-i18n="Ariza yuborish">Ariza yuborish</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('mening-arizalarim*') ? 'active' : ''}}">
+            <a href="{{route('my')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-mail"></i>
                 <div data-i18n="Mening arizalarim">Mening arizalarim</div>
             </a>
         </li>
+
     </ul>
 </aside>

@@ -19,9 +19,13 @@
                     <tr>
                         <th>Ism familya</th>
                         <th>Telefon raqami</th>
+                        <th>Kursi</th>
                         <th>Fakulteti</th>
                         <th>Mutaxasislik</th>
+                        <th>Jins</th>
                         <th>Status</th>
+                        <th>Yotoqxona</th>
+                        <th>Qavat</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -37,10 +41,16 @@
                             +{{$ariza->user->phone}}
                         </td>
                         <td>
+                            {{$ariza->course}}-Kurs
+                        </td>
+                        <td>
                             {{$ariza->faculty->name}}
                         </td>
                         <td>
                             {{$ariza->specialty->name}}
+                        </td>
+                        <td>
+                            {{$ariza->gender==1 ? 'Erkak' : 'Ayol'}}
                         </td>
                         <td>
                             @if($ariza->status==0)
@@ -50,6 +60,12 @@
                             @else
                                 <span class="badge bg-label-danger me-1">Rad etildi</span>
                             @endif
+                        </td>
+                        <td>
+                            {{$ariza->apartment->name}}
+                        </td>
+                        <td>
+                            {{$ariza->floor}}-Qavat
                         </td>
                         <td>
                             <a href="{{route('ariza_edit',$ariza->id)}}"><i class="ti ti-pencil me-1"></i></a>
