@@ -45,7 +45,7 @@ class StudentController extends Controller
             'speciality'=>'required',
             'course'=>'required',
             'gender'=>'required',
-            'photo'=>'required|mimes:jpg,png,jpeg',
+            'photo'=>'required',
             'file'=>'required|mimes:jpg,pdf,doc,docx,png'
         ]);
 
@@ -54,10 +54,10 @@ class StudentController extends Controller
         $filename = str_replace(" ","_", $filename);
         $path_file = $file->storeAs('public/uploads/files',$filename);
 
-        $photo = $request->photo;
-        $filename = date('YmdHi').$photo->getClientOriginalName();
-        $filename = str_replace(" ","_", $filename);
-        $path_photo = $file->storeAs('public/uploads/photos',$filename);
+        $image = $request->photo;
+        $filename_image = date('YmdHi').$image->getClientOriginalName();
+        $filename_image = str_replace(" ","_", $filename_image);
+        $path_photo = $file->storeAs('public/uploads/photos',$filename_image);
 
         Ariza::create([
             'user_id'=>auth()->user()->id,

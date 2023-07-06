@@ -17,7 +17,6 @@
                     alt="user-avatar"
                     class="d-block rounded w-px-100 h-px-100"
                     id="uploadedAvatar"
-
                   />
                   <div class="button-wrapper">
                     <label for="upload" class="btn btn-primary me-2 mb-3" tabindex="0">

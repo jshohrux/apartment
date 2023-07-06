@@ -13,8 +13,8 @@ class Ariza extends Model
         'fullname',
         'birthday',
         'passport',
-        'region',
-        'district',
+        'region_id',
+        'district_id',
         'photo',
         'file',
         'user_id',
@@ -27,6 +27,7 @@ class Ariza extends Model
         'description',
         'apartment_id',
         'floor',
+        'phone',
     ];
 
     public function user(){

@@ -524,7 +524,7 @@
                 {{-- <h6 class="text-muted mt-3">With arrows</h6> --}}
 
                 {{-- swipper --}}
-                <div class="swiper" id="swiper-with-arrows" style="height: 750px">
+                <div class="swiper" id="swiper-with-arrows" style="height: 650px">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide d-flex align-items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
                     url('static/assets/img/slide/1.jpg');">
@@ -1512,24 +1512,5 @@
 
     <!-- Page JS -->
     <script src="{{asset('static/assets/js/dashboards-analytics.js')}}"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            centeredSlides: true,
-            autoplay: {
-                delay: 1000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
   </body>
 </html>

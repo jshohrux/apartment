@@ -3,88 +3,98 @@
     <!-- Content -->
 
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Bosh sahifa/</span> Fakultet yaratish</h4>
+        <h4 class="fw-bold py-3"><span class="text-muted fw-light">Bosh sahifa/</span> Fakultet yaratish</h4>
         <!-- Multi Column with Form Separator -->
-        <div class="card mb-4">
-            <h5 class="card-header">Ariza</h5>
+        <div class="card">
             <div class="col-xl-12 col-lg-5 col-md-5">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-5">
-                      <small class="card-text text-uppercase">Xodim xaqida</small>
-                        <ul class="list-unstyled mb-4 mt-3">
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-user"></i><span class="fw-bold mx-2">FIO:</span> <span>{{$ariza->user->name}}</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-check"></i><span class="fw-bold mx-2">Status:</span>
-                            @if($ariza->status==1)
-                                <span class="badge bg-label-success ms-1">Qabul qilindi</span>
-                            @elseif($ariza->status==0)
-                                <span class="badge bg-label-warning ms-1">Ko'rib chiqilmoqda</span>
-                            @else
-                                <span class="badge bg-label-success ms-1">Rad etildi</span>
-                            @endif
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-crown"></i><span class="fw-bold mx-2">Role:</span> <span>{{$ariza->user->role->name}}</span>
-                          </li>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-5">
+                                <small class="card-text text-uppercase">Xodim xaqida</small>
+                                <div class="flex-shrink-0 mt-3 mx-0 mx-auto">
+                                    <img
+                                        src="{{url(Storage::url($ariza->photo))}}"
+                                        alt="user image"
+                                        class="d-block h-auto rounded img-fluid"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-5">
+                                <small class="card-text text-uppercase">Xodim xaqida</small>
+                                <ul class="list-unstyled mb-4 mt-3">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-user"></i><span class="fw-bold mx-2">FIO:</span> <span>{{$ariza->user->name}}</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-check"></i><span class="fw-bold mx-2">Status:</span>
+                                        @if($ariza->status==1)
+                                            <span class="badge bg-label-success ms-1">Qabul qilindi</span>
+                                        @elseif($ariza->status==0)
+                                            <span class="badge bg-label-warning ms-1">Ko'rib chiqilmoqda</span>
+                                        @else
+                                            <span class="badge bg-label-success ms-1">Rad etildi</span>
+                                        @endif
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-crown"></i><span class="fw-bold mx-2">Role:</span> <span>{{$ariza->user->role->name}}</span>
+                                    </li>
 
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-map-pin"></i><span class="fw-bold mx-2">Shahar:</span>
-                            <span>{{$ariza->region->name}}</span>
-                          </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-map-pin"></i><span class="fw-bold mx-2">Shahar:</span>
+                                        <span>{{$ariza->region->name}}</span>
+                                    </li>
 
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-flag"></i><span class="fw-bold mx-2">Tuman:</span> <span>ZAfarobod</span>
-                          </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-flag"></i><span class="fw-bold mx-2">Tuman:</span> <span>ZAfarobod</span>
+                                    </li>
 
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-map-pin"></i><span class="fw-bold mx-2">Manzil:</span> <span>{{$ariza->city}}</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-calendar"></i><span class="fw-bold mx-2">Tug'ilgan sana:</span>
-                            <span>{{$ariza->birthday}}</span>
-                          </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-map-pin"></i><span class="fw-bold mx-2">Manzil:</span> <span>{{$ariza->city}}</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-calendar"></i><span class="fw-bold mx-2">Tug'ilgan sana:</span>
+                                        <span>{{$ariza->birthday}}</span>
+                                    </li>
 
-                        </ul>
+                                </ul>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-5">
+                                <small class="card-text text-uppercase">ALOQA</small>
+                                <ul class="list-unstyled mb-4 mt-3">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-phone-call"></i><span class="fw-bold mx-2">Telefon:</span>
+                                        <span>{{$ariza->phone}}</span>
+                                    </li>
+                                </ul>
+                                <small class="card-text text-uppercase">O'qish</small>
+                                <ul class="list-unstyled mb-4 mt-3">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Fakultet:</span>
+                                        <span>{{$ariza->faculty->name}}</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Mutaxasislik:</span>
+                                        <span>{{$ariza->specialty->name}}</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Kursi:</span>
+                                        <span>{{$ariza->course}}-Kurs</span>
+                                    </li>
+                                    {{-- <li class="d-flex align-items-center mb-3">
+                                      <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Qaysi tilni biladi:</span>
+                                      @foreach($user->languages as $language)
+                                      <span class="badge bg-label-info ms-1">{{$language->name}}</span>
+                                      @endforeach
+                                    </li> --}}
+                                </ul>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-5">
-                      <small class="card-text text-uppercase">ALOQA</small>
-                        <ul class="list-unstyled mb-4 mt-3">
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-phone-call"></i><span class="fw-bold mx-2">Telefon:</span>
-                            <span>{{$ariza->phone}}</span>
-                          </li>
-                        </ul>
-                        <small class="card-text text-uppercase">O'qish</small>
-                        <ul class="list-unstyled mb-4 mt-3">
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Fakultet:</span>
-                            <span>{{$ariza->faculty->name}}</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Mutaxasislik:</span>
-                            <span>{{$ariza->specialty->name}}</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Stavka:</span>
-                            <span>SSSSSSSS</span>
-                          </li>
-                          {{-- <li class="d-flex align-items-center mb-3">
-                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Qaysi tilni biladi:</span>
-                            @foreach($user->languages as $language)
-                            <span class="badge bg-label-info ms-1">{{$language->name}}</span>
-                            @endforeach
-                          </li> --}}
-                        </ul>
-
-                    </div>
-                    </div>
-                  </div>
                 </div>
             </div>
+
             <form class="card-body" action="{{route('ariza_update',$ariza->id)}}" method="POST">
                 @csrf
                 {{method_field('PUT')}}
