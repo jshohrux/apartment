@@ -7,94 +7,169 @@
         <!-- Multi Column with Form Separator -->
         <div class="card mb-4">
             <h5 class="card-header">Ariza</h5>
+            <div class="col-xl-12 col-lg-5 col-md-5">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="row">
+                    <div class="col-xl-4 col-lg-6 col-md-5">
+                      <small class="card-text text-uppercase">Xodim xaqida</small>
+                        <ul class="list-unstyled mb-4 mt-3">
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-user"></i><span class="fw-bold mx-2">FIO:</span> <span>{{$ariza->user->name}}</span>
+                          </li>
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-check"></i><span class="fw-bold mx-2">Status:</span>
+                            @if($ariza->status==1)
+                                <span class="badge bg-label-success ms-1">Qabul qilindi</span>
+                            @elseif($ariza->status==0)
+                                <span class="badge bg-label-warning ms-1">Ko'rib chiqilmoqda</span>
+                            @else
+                                <span class="badge bg-label-success ms-1">Rad etildi</span>
+                            @endif
+                          </li>
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-crown"></i><span class="fw-bold mx-2">Role:</span> <span>{{$ariza->user->role->name}}</span>
+                          </li>
+
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-map-pin"></i><span class="fw-bold mx-2">Shahar:</span>
+                            <span>{{$ariza->region->name}}</span>
+                          </li>
+
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-flag"></i><span class="fw-bold mx-2">Tuman:</span> <span>ZAfarobod</span>
+                          </li>
+
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-map-pin"></i><span class="fw-bold mx-2">Manzil:</span> <span>{{$ariza->city}}</span>
+                          </li>
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-calendar"></i><span class="fw-bold mx-2">Tug'ilgan sana:</span>
+                            <span>{{$ariza->birthday}}</span>
+                          </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-5">
+                      <small class="card-text text-uppercase">ALOQA</small>
+                        <ul class="list-unstyled mb-4 mt-3">
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-phone-call"></i><span class="fw-bold mx-2">Telefon:</span>
+                            <span>{{$ariza->phone}}</span>
+                          </li>
+                        </ul>
+                        <small class="card-text text-uppercase">O'qish</small>
+                        <ul class="list-unstyled mb-4 mt-3">
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Fakultet:</span>
+                            <span>{{$ariza->faculty->name}}</span>
+                          </li>
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Mutaxasislik:</span>
+                            <span>{{$ariza->specialty->name}}</span>
+                          </li>
+                          <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Stavka:</span>
+                            <span>SSSSSSSS</span>
+                          </li>
+                          {{-- <li class="d-flex align-items-center mb-3">
+                            <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Qaysi tilni biladi:</span>
+                            @foreach($user->languages as $language)
+                            <span class="badge bg-label-info ms-1">{{$language->name}}</span>
+                            @endforeach
+                          </li> --}}
+                        </ul>
+
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
             <form class="card-body" action="{{route('ariza_update',$ariza->id)}}" method="POST">
                 @csrf
                 {{method_field('PUT')}}
-              <h6>Umumiy ma'lumotlar</h6>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label" for="multicol-username">Ism familya</label>
-                  <input type="text" id="multicol-username" class="form-control" value="{{$ariza->user->name}}" disabled/>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label" for="multicol-username">Jinsi</label>
-                    <input type="text" id="multicol-username" class="form-control" value="{{$ariza->gender==1 ? 'Erkak' : 'Ayol'}}" disabled/>
-                  </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="multicol-email">Telefon raqami</label>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="text"
-                      id="multicol-email"
-                      class="form-control"
-                      value="{{$ariza->user->phone}}"
-                      disabled
-                      aria-describedby="multicol-email2"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-password-toggle">
-                    <label class="form-label" for="multicol-password">Kursi</label>
-                    <div class="input-group input-group-merge">
-                      <input
-                        type="text"
-                        id="multicol-password"
-                        class="form-control"
-                        value="{{$ariza->course}}-Kurs"
-                        disabled
-                      ></span>
+                {{-- <div class="row g-3">
+                    <div class="col-md-6">
+                    <label class="form-label" for="multicol-username">Ism familya</label>
+                    <input type="text" id="multicol-username" class="form-control" value="{{$ariza->user->name}}" disabled/>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-password-toggle">
-                    <label class="form-label" for="multicol-confirm-password">Fakultet</label>
-                    <div class="input-group input-group-merge">
-                      <input
-                        type="text"
-                        id="multicol-confirm-password"
-                        class="form-control"
-                        value="{{$ariza->faculty->name}}"
-                        disabled
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <label class="form-label" for="multicol-username">Jinsi</label>
+                        <input type="text" id="multicol-username" class="form-control" value="{{$ariza->gender==1 ? 'Erkak' : 'Ayol'}}" disabled/>
+                    </div>
+                    <div class="col-md-6">
+                    <label class="form-label" for="multicol-email">Telefon raqami</label>
+                    <div class="input-group input-group-merge">
+                        <input
+                        type="text"
+                        id="multicol-email"
+                        class="form-control"
+                        value="{{$ariza->user->phone}}"
+                        disabled
+                        aria-describedby="multicol-email2"
+                        />
+                    </div>
+                    </div>
+                    <div class="col-md-6">
                     <div class="form-password-toggle">
-                        <label class="form-label" for="multicol-confirm-password">Mutaxasislik</label>
+                        <label class="form-label" for="multicol-password">Kursi</label>
+                        <div class="input-group input-group-merge">
+                        <input
+                            type="text"
+                            id="multicol-password"
+                            class="form-control"
+                            value="{{$ariza->course}}-Kurs"
+                            disabled
+                        ></span>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-password-toggle">
+                        <label class="form-label" for="multicol-confirm-password">Fakultet</label>
                         <div class="input-group input-group-merge">
                         <input
                             type="text"
                             id="multicol-confirm-password"
                             class="form-control"
-                            value="{{$ariza->specialty->name}}"
+                            value="{{$ariza->faculty->name}}"
                             disabled
                         />
                         </div>
                     </div>
-                </div>
+                    </div>
 
-                <div class="col-md-6">
-                    <div class="form-password-toggle">
-                        <label class="form-label" for="multicol-confirm-password">Manzil</label>
-                        <div class="input-group input-group-merge">
-                        <input
-                            type="text"
-                            id="multicol-confirm-password"
-                            class="form-control"
-                            value="{{$ariza->city}}"
-                            disabled
-                        />
+                    <div class="col-md-6">
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="multicol-confirm-password">Mutaxasislik</label>
+                            <div class="input-group input-group-merge">
+                            <input
+                                type="text"
+                                id="multicol-confirm-password"
+                                class="form-control"
+                                value="{{$ariza->specialty->name}}"
+                                disabled
+                            />
+                            </div>
                         </div>
                     </div>
-                </div>
-              </div>
 
-              <hr class="my-4 mx-n4" />
+                    <div class="col-md-6">
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="multicol-confirm-password">Manzil</label>
+                            <div class="input-group input-group-merge">
+                            <input
+                                type="text"
+                                id="multicol-confirm-password"
+                                class="form-control"
+                                value="{{$ariza->city}}"
+                                disabled
+                            />
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
               <h6>Ariza</h6>
               <div class="row g-3">
                 <div class="col-md-12">

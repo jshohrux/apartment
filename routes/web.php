@@ -15,8 +15,8 @@ use App\Http\Controllers\Admin\StudentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->middleware(['auth']);
+    return view('test');
+});
 
 Auth::routes();
 

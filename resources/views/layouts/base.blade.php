@@ -38,6 +38,9 @@
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/swiper/swiper.css')}}" />
 
     <!-- Page CSS -->
+    <link rel="stylesheet" href="{{asset('static/assets/vendor/css/pages/ui-carousel.css')}}" />
+
+    <!-- Page CSS -->
     <link rel="stylesheet" href="{{asset('static/assets/vendor/css/pages/cards-advance.css')}}" />
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/toastr/toastr.css')}}" />
     {{-- <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/animate-css/animate.css')}}}" /> --}}
@@ -95,6 +98,8 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+
+
     <script src="{{asset('static/assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{asset('static/assets/vendor/libs/popper/popper.js')}}"></script>
     <script src="{{asset('static/assets/vendor/js/bootstrap.js')}}"></script>
@@ -118,6 +123,7 @@
     <script src="{{asset('static/assets/js/dashboards-analytics.js')}}"></script>
     <script src="{{asset('static/assets/js/ui-toasts.js')}}"></script>
     <script src="{{asset('static/assets/vendor/libs/toastr/toastr.js')}}"></script>
+    <script src="{{asset('static/assets/js/ui-carousel.js')}}"></script>
     <script>
         @if (Session::has('message'))
         var type = "{{ Session::get('alert-type', 'info') }}"
@@ -142,5 +148,6 @@
         }
         @endif
     </script>
+    @yield('script')
   </body>
 </html>

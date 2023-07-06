@@ -79,6 +79,20 @@
             </a>
         </li>
 
+        <li class="menu-item">
+            <a href="{{route('regions')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-calendar"></i>
+                <div>Viloyatlar</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="{{route('districts')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-calendar"></i>
+                <div>Tumanlar</div>
+            </a>
+        </li>
+
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Arizalar</span>
         </li>

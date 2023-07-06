@@ -37,7 +37,7 @@
                                 {{$errors->first('faculty')}}
                             </div>
                         @endif
-                      </div>
+                    </div>
                     <button type="submit" class="btn btn-success">Saqlash</button>
                 </form>
               </div>

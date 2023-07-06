@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\ApartmentController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\DistrictController;
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['auth','is_admin']], function () {
@@ -48,6 +50,23 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('new',[AdminController::class, 'new'])->name('new');
             Route::get('accepted',[AdminController::class, 'accepted'])->name('accepted');
             Route::get('rejected',[AdminController::class, 'rejected'])->name('rejected');
+        });
+
+
+        Route::group(['prefix' => 'regions'], function () {
+            Route::get('',[RegionController::class, 'index'])->name('regions');
+            Route::get('create',[RegionController::class, 'create'])->name('regions.create');
+            Route::post('store', [RegionController::class,  'store'])->name('regions.store');
+            Route::get('edit/{id}', [RegionController::class,  'edit'])->name('regions.edit');
+            Route::put('update/{id}', [RegionController::class,  'update'])->name('regions.update');
+        });
+
+        Route::group(['prefix' => 'districts'], function () {
+            Route::get('',[DistrictController::class, 'index'])->name('districts');
+            Route::get('create',[DistrictController::class, 'create'])->name('districts.create');
+            Route::post('store', [DistrictController::class,  'store'])->name('districts.store');
+            Route::get('edit/{id}', [DistrictController::class,  'edit'])->name('districts.edit');
+            Route::put('update/{id}', [DistrictController::class,  'update'])->name('districts.update');
         });
     });
 });

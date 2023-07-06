@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Faculty;
 use App\Models\Specialty;
 use App\Models\Ariza;
+use App\Models\Region;
+use App\Models\District;
 use Auth;
 
 class StudentController extends Controller
@@ -27,16 +29,35 @@ class StudentController extends Controller
     public function send_form(Request $request){
         $faculties = Faculty::all();
         $speciality = Specialty::all();
-        return view('send_form', compact('faculties','speciality'));
+        $regions = Region::all();
+        $districts = District::all();
+        return view('send_form', compact('faculties','speciality','regions','districts'));
     }
 
     public function store_form(Request $request){
         $request->validate([
+            'fullname'=>'required',
+            'birthday'=>'required',
+            'passport'=>'required',
+            'region'=>'required',
+            'district'=>'required',
             'faculty'=>'required',
             'speciality'=>'required',
             'course'=>'required',
             'gender'=>'required',
+            'photo'=>'required|mimes:jpg,png,jpeg',
+            'file'=>'required|mimes:jpg,pdf,doc,docx,png'
         ]);
+
+        $file = $request->file;
+        $filename = date('YmdHi').$file->getClientOriginalName();
+        $filename = str_replace(" ","_", $filename);
+        $path_file = $file->storeAs('public/uploads/files',$filename);
+
+        $photo = $request->photo;
+        $filename = date('YmdHi').$photo->getClientOriginalName();
+        $filename = str_replace(" ","_", $filename);
+        $path_photo = $file->storeAs('public/uploads/photos',$filename);
 
         Ariza::create([
             'user_id'=>auth()->user()->id,
@@ -45,6 +66,13 @@ class StudentController extends Controller
             'course'=>$request->get('course'),
             'gender'=>$request->get('gender'),
             'city'=>$request->get('address'),
+            'fullname'=>$request->get('fullname'),
+            'passport'=>$request->get('passport'),
+            'birthday'=>$request->get('birthday'),
+            'region_id'=>$request->get('region'),
+            'district_id'=>$request->get('district'),
+            'photo'=>$path_photo,
+            'file'=>$path_file,
         ]);
 
         return redirect()->route('home')->with('success','Siz ariza yubordingiz!!');

@@ -10,6 +10,13 @@ class Ariza extends Model
     use HasFactory;
 
     protected $fillable=[
+        'fullname',
+        'birthday',
+        'passport',
+        'region',
+        'district',
+        'photo',
+        'file',
         'user_id',
         'faculty_id',
         'specialty_id',
@@ -36,5 +43,13 @@ class Ariza extends Model
 
     public function apartment(){
         return $this->belongsTo(Apartment::class, 'apartment_id');
+    }
+
+    public function region(){
+        return $this->belongsTo(Region::class, 'region_id');
+    }
+
+    public function district(){
+        return $this->belongsTo(District::class, 'district_id');
     }
 }
