@@ -4,7 +4,7 @@
     @if(!empty($success))
         <div class="alert alert-success">{{ $success }}</div>
     @endif
-
+{{-- 
     <div class="row">
         <!-- With arrows -->
         <div class="col-md-12 mb-4">
@@ -32,6 +32,6 @@
           </div>
         </div>
 
-      </div>
+    </div> --}}
 </div>
 @endsection

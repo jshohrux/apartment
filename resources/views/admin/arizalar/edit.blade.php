@@ -10,8 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-4 col-lg-6 col-md-5">
-                                <small class="card-text text-uppercase">Xodim xaqida</small>
+                            <div class="col-xl-3 col-lg-6 col-md-5">
                                 <div class="flex-shrink-0 mt-3 mx-0 mx-auto">
                                     <img
                                         src="{{url(Storage::url($ariza->photo))}}"
@@ -19,9 +18,10 @@
                                         class="d-block h-auto rounded img-fluid"
                                     />
                                 </div>
+                                <div class="mt-2">Rasm</div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-5">
-                                <small class="card-text text-uppercase">Xodim xaqida</small>
+                                <small class="card-text text-uppercase">Talaba xaqida</small>
                                 <ul class="list-unstyled mb-4 mt-3">
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="ti ti-user"></i><span class="fw-bold mx-2">FIO:</span> <span>{{$ariza->user->name}}</span>
@@ -80,6 +80,12 @@
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Kursi:</span>
                                         <span>{{$ariza->course}}-Kurs</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-file"></i><span class="fw-bold mx-2">Asoslovchi hujjat:</span>
+                                        <span>
+                                            <a href="{{Storage::url($ariza->file)}}">Ko'rish</a>
+                                        </span>
                                     </li>
                                     {{-- <li class="d-flex align-items-center mb-3">
                                       <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Qaysi tilni biladi:</span>

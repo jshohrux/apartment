@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Region;
+use App\Models\District;
 
 class RegionController extends Controller
 {
@@ -77,5 +78,17 @@ class RegionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function get_districts(Request $request){
+        $str = "";
+        if($request->id){
+            $regions = District::where('region_id' , $request->id)->get();
+            foreach ($regions as $value){
+                $str .= '<option value="'.$value->id.'">'.$value->name.'</option>';
+            }
+        }
+        echo $str;
+
     }
 }

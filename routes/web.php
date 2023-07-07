@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\RegionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::post('ariza-saqlash',[StudentController::class, 'store_form'])->name('ari
 Route::get('mening-arizalarim/{id}', [StudentController::class, 'my_show'])->name('my_show');
 
 
+Route::get('districts-regions', [RegionController::class, 'get_districts'])->name('get_districts');
 require __DIR__.'/admin.php';

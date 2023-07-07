@@ -124,6 +124,7 @@
     <script src="{{asset('static/assets/js/ui-toasts.js')}}"></script>
     <script src="{{asset('static/assets/vendor/libs/toastr/toastr.js')}}"></script>
     <script src="{{asset('static/assets/js/ui-carousel.js')}}"></script>
+    <script src="{{asset('action.js')}}"></script>
     <script>
         @if (Session::has('message'))
         var type = "{{ Session::get('alert-type', 'info') }}"

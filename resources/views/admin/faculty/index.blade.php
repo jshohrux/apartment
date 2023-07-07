@@ -21,7 +21,7 @@
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table">
-                    <thead class="table">
+                    <thead class="table-primary">
                         <caption class="ms-4">
                             Fakultetlar ro'yxati
                         </caption>

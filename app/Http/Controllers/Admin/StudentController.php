@@ -31,6 +31,12 @@ class StudentController extends Controller
         $speciality = Specialty::all();
         $regions = Region::all();
         $districts = District::all();
+
+        $ariza = Ariza::where('user_id',auth()->id())->where('status',0)->first();
+
+        if($ariza){
+            return view('send_form')->with('success','Siz ariza yuborgansiz. Arizangiz 24 soat ichida ko\'rib chiqiladi!!');
+        }
         return view('send_form', compact('faculties','speciality','regions','districts'));
     }
 
@@ -46,18 +52,19 @@ class StudentController extends Controller
             'course'=>'required',
             'gender'=>'required',
             'photo'=>'required',
-            'file'=>'required|mimes:jpg,pdf,doc,docx,png'
+            'file'=>'required|mimes:jpg,pdf,doc,docx,png',
+            'phone'=>'required|min:13',
         ]);
+
+        $image = $request->photo;
+        $filename_image = date('YmdHi').$image->getClientOriginalName();
+        $filename_image = str_replace(" ","_", $filename_image);
+        $path_photo = $image->storeAs('public/uploads/photos',$filename_image);
 
         $file = $request->file;
         $filename = date('YmdHi').$file->getClientOriginalName();
         $filename = str_replace(" ","_", $filename);
         $path_file = $file->storeAs('public/uploads/files',$filename);
-
-        $image = $request->photo;
-        $filename_image = date('YmdHi').$image->getClientOriginalName();
-        $filename_image = str_replace(" ","_", $filename_image);
-        $path_photo = $file->storeAs('public/uploads/photos',$filename_image);
 
         Ariza::create([
             'user_id'=>auth()->user()->id,
