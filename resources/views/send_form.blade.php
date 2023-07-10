@@ -83,7 +83,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="faculty">Fakultetni tanlang</label>
-                        <select name="faculty" id="faculty" class="select2 form-select" data-allow-clear="true">
+                        <select name="faculty" id="faculty" class="select2 form-select" onchange="selectSpeciality(this)">
                             @foreach ($faculties as $faculty)
                                 <option value="{{$faculty->id}}">{{$faculty->name}}</option>
                             @endforeach
@@ -97,7 +97,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="speciality">Yo'nalishingizni tanlang</label>
-                        <select name="speciality" id="speciality" class="select2 form-select" data-allow-clear="true">
+                        <select name="speciality" id="speciality" class="select2 form-select" >
                             @foreach ($speciality as $speciality)
                                 <option value="{{$speciality->id}}">{{$speciality->name}}</option>
                             @endforeach

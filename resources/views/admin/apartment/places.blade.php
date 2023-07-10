@@ -25,27 +25,35 @@
                     </caption>
                     <thead class="table-primary">
                     <tr>
+                        <th>#</th>
                         <th>Qavatlar</th>
-                        <th>Joylar soni</th>
+                        <th>Umumiy joylar soni</th>
+                        <th>Qolgan joylar soni</th>
                         <th>Amallar</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @foreach($places as $place)
+                    @foreach($places as $key=>$place)
                         <tr>
-                        <td>
-                            <strong>
-                                {{$place->name}} - Qavat
-                            </strong>
-                        </td>
-                        <td>
-                            {{$place->count}}
-                        </td>
-                        <td>
-                            <a href="{{route('speciality.edit',$place->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
-                        </td>
-                    </tr>
+                            <td>
+                                {{++$key}}
+                            </td>
+                            <td>
+                                <strong>
+                                    {{$place->name}} - Qavat
+                                </strong>
+                            </td>
+                            <td>
+                                {{$place->count}}
+                            </td>
+                            <td>
+                                {{$place->count-$place->arizalar->count()}}
+                            </td>
+                            <td>
+                                <a href="{{route('add.edit',[$apartment->id,$place->id])}}"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                            </td>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

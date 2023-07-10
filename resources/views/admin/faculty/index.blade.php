@@ -21,28 +21,32 @@
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table">
-                    <thead class="table-primary">
-                        <caption class="ms-4">
-                            Fakultetlar ro'yxati
-                        </caption>
+                    <caption class="ms-4">
+                        Fakultetlar ro'yxati
+                    </caption>
+                    <thead class="table-info">
                     <tr>
+                        <td>#</td>
                         <th>Fakultet nomi</th>
                         <th>Amallar</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @foreach($faculties as $faculty)
+                    @foreach($faculties as $key=>$faculty)
                         <tr>
-                        <td>
-                            <strong>
-                                {{$faculty->name}}
-                            </strong>
-                        </td>
-                        <td>
-                            <a href="{{route('faculty.edit',$faculty->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
-                        </td>
-                    </tr>
+                            <td>
+                                {{++$key}}
+                            </td>
+                            <td>
+                                <strong>
+                                    {{$faculty->name}}
+                                </strong>
+                            </td>
+                            <td>
+                                <a href="{{route('faculty.edit',$faculty->id)}}"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                            </td>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

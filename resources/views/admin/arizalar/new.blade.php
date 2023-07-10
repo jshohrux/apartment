@@ -15,7 +15,7 @@
                     <caption class="ms-4">
                         Arizalar ro'yxati
                     </caption>
-                    <thead class="table">
+                    <thead class="table-info">
                     <tr>
                         <th>Ism familya</th>
                         <th>Telefon raqami</th>
@@ -28,33 +28,33 @@
                     <tbody class="table-border-bottom-0">
                     @foreach($arizalar as $ariza)
                         <tr>
-                        <td>
-                            <strong>
-                                {{$ariza->user->name}}
-                            </strong>
-                        </td>
-                        <td>
-                            +{{$ariza->user->phone}}
-                        </td>
-                        <td>
-                            {{$ariza->faculty->name}}
-                        </td>
-                        <td>
-                            {{$ariza->specialty->name}}
-                        </td>
-                        <td>
-                            @if($ariza->status==0)
-                                <span class="badge bg-label-primary me-1">Ko'rib chiqilmoqda</span>
-                            @elseif($ariza->status==1)
-                                <span class="badge bg-label-success me-1">Qabul qilindi</span>
-                            @else
-                                <span class="badge bg-label-danger me-1">Rad etildi</span>
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{route('ariza_edit',$ariza->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
-                        </td>
+                            <td>
+                                <strong>
+                                    {{$ariza->user->name}}
+                                </strong>
+                            </td>
+                            <td>
+                                +{{$ariza->user->phone}}
+                            </td>
+                            <td>
+                                {{$ariza->faculty->name}}
+                            </td>
+                            <td>
+                                {{$ariza->specialty->name}}
+                            </td>
+                            <td>
+                                @if($ariza->status==0)
+                                    <span class="badge bg-label-primary me-1">Ko'rib chiqilmoqda</span>
+                                @elseif($ariza->status==1)
+                                    <span class="badge bg-label-success me-1">Qabul qilindi</span>
+                                @else
+                                    <span class="badge bg-label-danger me-1">Rad etildi</span>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{route('ariza_edit',$ariza->id)}}"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                            </td>
                     </tr>
                     @endforeach
                     </tbody>

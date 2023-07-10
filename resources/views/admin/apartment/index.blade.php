@@ -8,24 +8,20 @@
 @section('content')
     <!-- Content -->
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Mutaxassisliklar</h4>
+        <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Yotoqxonalar</h4>
         <div class="card">
             {{-- <h5 class="card-header">Fakultetlar</h5> --}}
             <div class="d-flex justify-content-between">
-                <h5 class="card-header">Mutaxassislik</h5>
-                {{-- <div class="dt-buttons">
-                    <a href="{{route('speciality.create')}}" class="btn btn-success me-3 mt-3" tabindex="0" aria-haspopup="dialog" aria-expanded="false"><span>
-                        <i class="ti ti-plus me-1 ti-xs"></i>Qo'shish</span>
-                    </a>
-                </div> --}}
+                <h5 class="card-header">Yotoqxonalar ro'yxati</h5>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <caption class="ms-4">
                         Yotoqxona ro'yxati
                     </caption>
-                    <thead class="table">
+                    <thead class="table-info">
                     <tr>
+                        <th>ID</th>
                         <th>Yotoqxona</th>
                         <th>Amallar</th>
                     </tr>
@@ -33,6 +29,9 @@
                     <tbody class="table-border-bottom-0">
                     @foreach($apartments as $apartment)
                         <tr class="fs-30">
+                            <td>
+                                {{$apartment->id}}
+                            </td>
                             <td>
                                 <strong>
                                     <a href="{{route('show_places',$apartment->id)}}">

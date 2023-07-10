@@ -3,7 +3,7 @@
     <!-- Content -->
 
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Bosh sahifa/</span> Fakultet yaratish</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Bosh sahifa/</span> Tuman yaratish</h4>
 
         <div class="row">
           <div class="col-xl">
@@ -15,7 +15,6 @@
               <div class="card-body">
                 <form action="{{route('districts.store')}}" method="POST">
                     @csrf
-
                     <div class="mb-2">
                         <label class="form-label" for="name">Tuman nomi</label>
                         <input name="name" type="text" class="form-control" id="name" />

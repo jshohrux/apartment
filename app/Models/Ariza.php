@@ -53,4 +53,8 @@ class Ariza extends Model
     public function district(){
         return $this->belongsTo(District::class, 'district_id');
     }
+
+    public function place(){
+        return $this->belongsTo(Places::class, 'floor');
+    }
 }

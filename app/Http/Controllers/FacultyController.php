@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Specialty;
 
 class FacultyController extends Controller
 {
@@ -99,5 +100,16 @@ class FacultyController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function get_speciality(Request $request){
+        $str = "";
+        if($request->id){
+            $specialities = Specialty::where('faculty_id' , $request->id)->get();
+            foreach ($specialities as $speciality){
+                $str .= '<option value="'.$speciality->id.'">'.$speciality->name.'</option>';
+            }
+        }
+        echo $str;
     }
 }

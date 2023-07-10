@@ -16,8 +16,8 @@
                 <form action="{{route('add.store',$apartment->id)}}" method="POST">
                     @csrf
                     <div class="mb-2">
-                        <label class="form-label" for="faculty">Qavatni tanlang</label>
-                        <select name="name" id="faculty" class="select2 form-select" data-allow-clear="true">
+                        <label class="form-label" for="floor">Qavatni tanlang</label>
+                        <select name="name" id="floor" class="select2 form-select" data-allow-clear="true">
                             <option value="1">1-Qavat</option>
                             <option value="2">2-Qavat</option>
                             <option value="3">3-Qavat</option>

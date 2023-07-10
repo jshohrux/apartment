@@ -24,29 +24,33 @@
                     <caption class="ms-4">
                         Mutaxassisliklar ro'yxati
                     </caption>
-                    <thead class="table-primary">
+                    <thead class="table-info">
                     <tr>
+                        <th>#</th>
                         <th>Mutaxassislik nomi</th>
                         <th>Fakultet</th>
                         <th>Amallar</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @foreach($specialities as $speciality)
+                    @foreach($specialities as $key=>$speciality)
                         <tr>
-                        <td>
-                            <strong>
-                                {{$speciality->name}}
-                            </strong>
-                        </td>
-                        <td>
-                            {{$speciality->faculty->name}}
-                        </td>
-                        <td>
-                            <a href="{{route('speciality.edit',$speciality->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
-                        </td>
-                    </tr>
+                            <td>
+                                {{++$key}}
+                            </td>
+                            <td>
+                                <strong>
+                                    {{$speciality->name}}
+                                </strong>
+                            </td>
+                            <td>
+                                {{$speciality->faculty->name}}
+                            </td>
+                            <td>
+                                <a href="{{route('speciality.edit',$speciality->id)}}"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                            </td>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\FacultyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\RegionController;
 
 Route::get('/', function () {
     return view('test');
-});
+})->name('bosh_sahifa');
 
 Auth::routes();
 
@@ -33,4 +34,5 @@ Route::get('mening-arizalarim/{id}', [StudentController::class, 'my_show'])->nam
 
 
 Route::get('districts-regions', [RegionController::class, 'get_districts'])->name('get_districts');
+Route::get('get-speciality', [FacultyController::class, 'get_speciality'])->name('get_speciality');
 require __DIR__.'/admin.php';

@@ -1,37 +1,9 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
-              <span class="app-brand-logo demo">
-                <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z"
-                      fill="#7367F0"
-                  />
-                  <path
-                      opacity="0.06"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z"
-                      fill="#161616"
-                  />
-                  <path
-                      opacity="0.06"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z"
-                      fill="#161616"
-                  />
-                  <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z"
-                      fill="#7367F0"
-                  />
-                </svg>
-              </span>
-            <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+        <a href="{{route('admin.dashboard')}}" class="app-brand-link">
+            <span class="">
+                <img src="{{asset('static/assets/img/logo.png')}}" alt="" class="img" width="180">
+            </span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -66,27 +38,27 @@
             </a>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item {{ request()->is('admin/faculty*') ? 'active' : ''}}">
             <a href="{{route('faculty')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-calendar"></i>
                 <div data-i18n="Fakultetlar">Fakultetlar</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ request()->is('admin/speciality*') ? 'active' : ''}}">
             <a href="{{route('speciality')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-layout-kanban"></i>
                 <div data-i18n="Mutaxasisliklar">Mutaxasisliklar</div>
             </a>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item {{ request()->is('admin/regions*') ? 'active' : ''}}">
             <a href="{{route('regions')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-calendar"></i>
                 <div>Viloyatlar</div>
             </a>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item {{ request()->is('admin/districts*') ? 'active' : ''}}">
             <a href="{{route('districts')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-calendar"></i>
                 <div>Tumanlar</div>
@@ -100,7 +72,7 @@
         <li class="menu-item {{ request()->is('admin/arizalar/new*') ? 'active' : ''}}">
             <a href="{{route('new')}}" class="menu-link">
               <div>Yangi arizalar</div>
-              <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
+              <div class="badge bg-label-primary rounded-pill ms-auto" id="count"></div>
             </a>
           </li>
           <li class="menu-item {{ request()->is('admin/arizalar/accepted*') ? 'active' : ''}}">
@@ -115,3 +87,20 @@
           </li>
     </ul>
 </aside>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            type: "get",
+            url: "/admin/arizalar/yangi-arizalar",
+            cache: false,
+            success: function (data) {
+                let count = document.getElementById("count");
+                count.innerHTML = data.new;
+            },
+            error: function (data) {},
+        });
+    });
+</script>

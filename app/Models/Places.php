@@ -18,4 +18,8 @@ class Places extends Model
     public function apartment(){
         return $this->belongsTo(Apartment::class, 'apartment_id');
     }
+
+    public function arizalar(){
+        return $this->hasMany(Ariza::class, 'floor','name');
+    }
 }

@@ -40,6 +40,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('places/{id}',[ApartmentController::class, 'show_places'])->name('show_places');
             Route::get('places/{id}/add',[ApartmentController::class, 'add'])->name('add.places');
             Route::post('places/{id}/store', [ApartmentController::class, 'add_store'])->name('add.store');
+            Route::get('places/{id}/edit/{place}',[ApartmentController::class, 'edit'])->name('add.edit');
+
         });
 
         Route::group(['prefix' => 'arizalar'], function () {
@@ -50,6 +52,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('new',[AdminController::class, 'new'])->name('new');
             Route::get('accepted',[AdminController::class, 'accepted'])->name('accepted');
             Route::get('rejected',[AdminController::class, 'rejected'])->name('rejected');
+
+            Route::get('yangi-arizalar', [AdminController::class, 'new_arizalar'])->name('new_arizalar');
         });
 
 

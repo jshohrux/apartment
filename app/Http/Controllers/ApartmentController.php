@@ -45,9 +45,14 @@ class ApartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id,$place)
     {
         //
+        $apartment = Apartment::findOrfail($id);
+        $place = Places::where('apartment_id',$id)
+                ->where('id',$place)->first();
+
+        return view('admin.apartment.places_edit', compact('apartment','place'));
     }
 
     /**
@@ -67,7 +72,7 @@ class ApartmentController extends Controller
     }
 
     public function show_places(Request $request, $id){
-        $places = Places::where('apartment_id',$id)->orderBy('name')->get();
+        $places = Places::with('arizalar')->where('apartment_id',$id)->orderBy('name')->get();
         $apartment = Apartment::findOrfail($id);
         return view('admin.apartment.places', compact('places','apartment'));
     }

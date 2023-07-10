@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ariza;
 use App\Models\User;
+use App\Models\Places;
 
 class AdminController extends Controller
 {
@@ -26,7 +27,8 @@ class AdminController extends Controller
 
     public function edit(Request $request, $id){
         $ariza = Ariza::findOrfail($id);
-        return view('admin.arizalar.edit', compact('ariza'));
+        $places = Places::all();
+        return view('admin.arizalar.edit', compact('ariza','places'));
     }
 
     public function update(Request $request, $id){
@@ -63,5 +65,14 @@ class AdminController extends Controller
     public function rejected(Request $request){
         $arizalar = Ariza::where('status',-1)->orderBy('id','desc')->get();
         return view('admin.arizalar.rejected', compact('arizalar'));
+    }
+
+    public function new_arizalar(Request $request){
+        $new_count = Ariza::where('status',0)->count();
+        return response()->json([
+            'status'=>1,
+            'msg'=>'ok',
+            'new'=>$new_count,
+        ]);
     }
 }
