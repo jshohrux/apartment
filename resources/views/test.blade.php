@@ -67,9 +67,6 @@
             height: auto;
             background-size: cover;
         }
-        .slide1{
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),url('static/assets/img/slide/1.jpg');
-        }
     </style>
   </head>
 
@@ -288,8 +285,9 @@
                 {{-- swipper --}}
                 <div class="swiper" id="swiper-with-arrows" style="height: 700px">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide d-flex align-items-center slide1">
-                      <div class="container">
+                    <div class="swiper-slide d-flex align-items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+                    url('static/assets/img/slide/1.jpg')">
+                      <div class="container" style="max-width: none;">
                         <p class="font-medium-3 text-uppercase pstyle"> Xush kelibsiz </p>
                     </div>
                     </div>
@@ -305,9 +303,9 @@
                         url({{asset('static/assets/img/slide/2.jpg')}});">
                       Slide 4
                     </div>
-                    <div class="swiper-slide" style="background-image: url({{asset('static/assets/img/elements/7.jpg')}})">
+                    {{-- <div class="swiper-slide" style="background-image: url({{asset('static/assets/img/elements/7.jpg')}})">
                       Slide 5
-                    </div>
+                    </div> --}}
                   </div>
                   <div class="swiper-button-next swiper-button-white custom-icon"></div>
                   <div class="swiper-button-prev swiper-button-white custom-icon"></div>
