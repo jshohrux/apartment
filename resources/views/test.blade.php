@@ -299,13 +299,12 @@
                         url({{asset('static/assets/img/slide/3.jpg')}});">
                       Slide 3
                     </div>
-                    <div class="swiper-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-                        url({{asset('static/assets/img/slide/2.jpg')}});">
+                    <div class="swiper-slide" style="background-image: url({{asset('static/assets/img/slide/2.jpg')}});">
                       Slide 4
                     </div>
-                    {{-- <div class="swiper-slide" style="background-image: url({{asset('static/assets/img/elements/7.jpg')}})">
+                    <div class="swiper-slide" style="background-image: url({{asset('static/assets/img/elements/7.jpg')}})">
                       Slide 5
-                    </div> --}}
+                    </div>
                   </div>
                   <div class="swiper-button-next swiper-button-white custom-icon"></div>
                   <div class="swiper-button-prev swiper-button-white custom-icon"></div>
