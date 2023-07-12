@@ -62,6 +62,8 @@ class RegionController extends Controller
     public function edit(string $id)
     {
         //
+        $region = Region::findOrfail($id);
+        return view('admin.regions.edit', compact('region'));
     }
 
     /**
@@ -70,6 +72,22 @@ class RegionController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'name'=>'required',
+        ]);
+
+        $region = Region::findOrfail($id);
+
+        $region->update([
+            'name'=>$request->get('name'),
+        ]);
+
+        $notification = [
+            'message' => 'Muvofaqqiyatli ravishda o\'zgartirildi',
+            'alert-type' => 'success',
+        ];
+        return redirect()->route('regions')->with($notification);
+
     }
 
     /**

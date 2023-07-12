@@ -43,8 +43,8 @@
                                 </strong>
                             </td>
                             <td>
-                                <a href="{{route('faculty.edit',$region->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                                <a href="{{route('regions.edit',$region->id)}}"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="#"> <i class="ti ti-trash me-1"></i></a>
                             </td>
                         </tr>
                     @endforeach

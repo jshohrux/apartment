@@ -66,6 +66,10 @@ class DistrictController extends Controller
     public function edit(string $id)
     {
         //
+        $district = District::findOrfail($id);
+        $regions = Region::all();
+        return view('admin.district.edit', compact('district','regions'));
+
     }
 
     /**
@@ -74,6 +78,22 @@ class DistrictController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'name'=>'required',
+            'region_id'=>'required',
+        ]);
+        $district=District::findOrfail($id);
+        $district->update([
+            'name'=>$request->name,
+            'region_id'=>$request->get('region_id')
+        ]);
+
+        $notification = [
+            'message' => 'Muvofaqqiyatli ravishda o\'zgartirildi',
+            'alert-type' => 'success',
+        ];
+        return redirect()->route('districts')->with($notification);
+
     }
 
     /**

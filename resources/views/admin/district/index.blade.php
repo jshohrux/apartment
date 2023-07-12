@@ -47,7 +47,7 @@
                                 {{$district->region->name}}
                             </td>
                             <td>
-                                <a href="{{route('faculty.edit',$district->id)}}"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="{{route('districts.edit',$district->id)}}"><i class="ti ti-pencil me-1"></i></a>
                                 <a href="$"> <i class="ti ti-trash me-1"></i></a>
                             </td>
                         </tr>
