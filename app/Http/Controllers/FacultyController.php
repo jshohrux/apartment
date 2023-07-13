@@ -102,6 +102,11 @@ class FacultyController extends Controller
         //
     }
 
+    public function talabalarga(Request $request){
+        dd($request);
+        return view('for_student');
+    }
+
     public function get_speciality(Request $request){
         $str = "";
         if($request->id){

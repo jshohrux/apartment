@@ -31,8 +31,12 @@ Route::get('mening-arizalarim', [StudentController::class, 'my'])->name('my');
 Route::get('ariza-yuborish',[StudentController::class, 'send_form'])->name('ariza_yuborish');
 Route::post('ariza-saqlash',[StudentController::class, 'store_form'])->name('ariza_saqlash');
 Route::get('mening-arizalarim/{id}', [StudentController::class, 'my_show'])->name('my_show');
-
+//Route::get('talabalarga', [StudentController::class, 'talabalarga'])->name('for_students');
+Route::get('talabalarga', function (){
+    return view('for_student');
+});
 
 Route::get('districts-regions', [RegionController::class, 'get_districts'])->name('get_districts');
 Route::get('get-speciality', [FacultyController::class, 'get_speciality'])->name('get_speciality');
+
 require __DIR__.'/admin.php';

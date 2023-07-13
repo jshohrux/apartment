@@ -246,7 +246,7 @@
               <div class="container-fluid d-flex h-100">
                 <ul class="menu-inner">
                   <!-- Dashboards -->
-                  <li class="menu-item active">
+                  <li class="menu-item {{ request()->is('/') ? 'active' : ''}}">
                     <a href="javascript:void(0)" class="menu-link menu-toggle">
                       <i class="menu-icon tf-icons ti ti-smart-home"></i>
                       <div>Bosh sahifa</div>
@@ -286,7 +286,7 @@
                 <div class="swiper" id="swiper-with-arrows" style="height: 700px">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide d-flex align-items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-                    url('static/assets/img/elements/1.jpg')">
+                    url({{asset('static/assets/img/elements/1.jpg')}})">
                       <div class="container" style="max-width: none;">
                         <p class="font-medium-3 text-uppercase pstyle"> Xush kelibsiz </p>
                     </div>
