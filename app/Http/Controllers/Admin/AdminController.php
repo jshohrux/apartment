@@ -105,7 +105,7 @@ class AdminController extends Controller
         $original_name = $file->getClientOriginalName();
         $filename = date('YmdHi').$file->getClientOriginalName();
         $filename = str_replace(" ","_", $filename);
-        $path = $file->storeAs('public/documents/',$filename);
+        $path = $file->storeAs('public/documents',$filename);
 
         Document::create([
             'name'=>$request->get('name'),
@@ -141,7 +141,7 @@ class AdminController extends Controller
             $original_name = $file->getClientOriginalName();
             $filename = date('YmdHi').$file->getClientOriginalName();
             $filename = str_replace(" ","_", $filename);
-            $path = $file->storeAs('public/documents/',$filename);
+            $path = $file->storeAs('public/documents',$filename);
             $document->update([
                 'file'=>$path
             ]);

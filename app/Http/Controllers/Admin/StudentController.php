@@ -37,6 +37,13 @@ class StudentController extends Controller
         if($ariza){
             return view('send_form')->with('success','Siz ariza yuborgansiz. Arizangiz 24 soat ichida ko\'rib chiqiladi!!');
         }
+
+        $ariza = Ariza::where('user_id',auth()->id())->where('status',1)->first();
+
+        if($ariza){
+            return view('send_form')->with('success','Siz arizangiz qabul qilingan!!');
+        }
+
         return view('send_form', compact('faculties','speciality','regions','districts'));
     }
 
@@ -80,6 +87,7 @@ class StudentController extends Controller
             'district_id'=>$request->get('district'),
             'photo'=>$path_photo,
             'file'=>$path_file,
+            'phone'=>$request->get('phone'),
         ]);
 
         return redirect()->route('home')->with('success','Siz ariza yubordingiz!!');

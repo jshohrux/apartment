@@ -51,7 +51,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="faculty">Ism familyangizni to'liq yozing</label>
-                        <input name="fullname" type="text" class="form-control">
+                        <input name="fullname" type="text" class="form-control" value="{{old('fullname')}}">
                         @if($errors->has('fullname'))
                             <div class="invalid-feedback d-block">
                                 {{$errors->first('fullname')}}
@@ -62,7 +62,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="faculty">Tug'ilgan sana</label>
-                        <input name="birthday" type="date" class="form-control">
+                        <input name="birthday" type="date" class="form-control" value="{{old('birthday')}}">
                         @if($errors->has('birthday'))
                             <div class="invalid-feedback d-block">
                                 {{$errors->first('birthday')}}
@@ -73,7 +73,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="faculty">Passport seriya va raqami</label>
-                        <input name="passport" id="passport" type="text" class="form-control" placeholder="AB1234567" style="text-transform:uppercase">
+                        <input name="passport" id="passport" type="text" class="form-control" placeholder="AB1234567" style="text-transform:uppercase" value="{{old('passport')}}">
                         @if($errors->has('passport'))
                             <div class="invalid-feedback d-block">
                                 {{$errors->first('passport')}}

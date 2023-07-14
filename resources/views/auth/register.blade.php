@@ -67,7 +67,7 @@
                 <div class="card-body">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center mb-4 mt-2">
-                        <a href="index.html" class="app-brand-link gap-2">
+                        <a href="{{route('bosh_sahifa')}}" class="app-brand-link gap-2">
                             <span class="logo">
                                 <img src="{{asset('static/assets/img/logo.png')}}" alt="" class="img" width="180">
                             </span>
