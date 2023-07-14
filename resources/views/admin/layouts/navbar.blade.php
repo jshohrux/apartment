@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <a class="dropdown-item" href="{{route('sozlamalar')}}">
                             <i class="ti ti-settings me-2 ti-sm"></i>
                             <span class="align-middle">Sozlamalar</span>
                         </a>

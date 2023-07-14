@@ -72,6 +72,17 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('edit/{id}', [DistrictController::class,  'edit'])->name('districts.edit');
             Route::put('update/{id}', [DistrictController::class,  'update'])->name('districts.update');
         });
+
+        Route::group(['prefix' => 'meyoriy-hujjatlar'], function () {
+            Route::get('',[AdminController::class, 'documents_all'])->name('documents_all');
+            Route::get('create',[AdminController::class, 'documents_create'])->name('documents.create');
+            Route::post('store', [AdminController::class,  'documents_store'])->name('documents.store');
+            Route::get('edit/{id}', [AdminController::class,  'documents_edit'])->name('documents.edit');
+            Route::put('update/{id}', [AdminController::class,  'documents_update'])->name('documents.update');
+        });
+
+        Route::get('sozlamalar', [AdminController::class, 'sozlamalar'])->name('sozlamalar');
+        Route::put('general/{id}', [AdminController::class, 'general'])->name('general');
     });
 });
 

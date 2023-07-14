@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\RegionController;
@@ -34,9 +35,10 @@ Route::get('mening-arizalarim/{id}', [StudentController::class, 'my_show'])->nam
 //Route::get('talabalarga', [StudentController::class, 'talabalarga'])->name('for_students');
 Route::get('talabalarga', function (){
     return view('for_student');
-});
+})->name('talabalarga');
 
 Route::get('districts-regions', [RegionController::class, 'get_districts'])->name('get_districts');
 Route::get('get-speciality', [FacultyController::class, 'get_speciality'])->name('get_speciality');
+Route::get('meyoriy-hujjatlar', [AdminController::class, 'documents'])->name('documents');
 
 require __DIR__.'/admin.php';

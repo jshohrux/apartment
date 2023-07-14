@@ -65,6 +65,12 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->is('admin/meyoriy-hujjatlar*') ? 'active' : ''}}">
+            <a href="{{route('documents_all')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-calendar"></i>
+                <div>Me'yoriy hujjatlar</div>
+            </a>
+        </li>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Arizalar</span>
         </li>
