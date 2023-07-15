@@ -14,7 +14,7 @@ class ApartmentController extends Controller
     public function index()
     {
         //
-        $apartments = Apartment::all();
+        $apartments = Apartment::with('places')->get();
         return view('admin.apartment.index', compact('apartments'));
     }
 
@@ -45,7 +45,7 @@ class ApartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, string $id,$place)
+    public function places_edit(Request $request, string $id,$place)
     {
         //
         $apartment = Apartment::findOrfail($id);
@@ -58,9 +58,21 @@ class ApartmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function places_update(Request $request, string $id, string $place)
     {
         //
+        $old_place = Places::where('apartment_id',$id)
+                    ->where('id',$place)->first();
+        $old_place->update([
+            'name'=>$request->name,
+            'count'=>$request->count,
+        ]);
+
+        $notification = [
+            'message' => 'Muvofaqqiyatli ravishda o\'zgartirildi',
+            'alert-type' => 'success',
+        ];
+        return redirect()->route('show_places',$id)->with($notification);
     }
 
     /**
@@ -72,7 +84,9 @@ class ApartmentController extends Controller
     }
 
     public function show_places(Request $request, $id){
-        $places = Places::with('arizalar')->where('apartment_id',$id)->orderBy('name')->get();
+        $places = Places::with(['arizalar'=>function($query) use ($id){
+            $query->where('apartment_id',$id);
+        }])->where('apartment_id',$id)->orderBy('name')->get();
         $apartment = Apartment::findOrfail($id);
         return view('admin.apartment.places', compact('places','apartment'));
     }
@@ -88,11 +102,16 @@ class ApartmentController extends Controller
             'count'=>'required|numeric',
         ]);
 
-        Places::create([
-            'name'=>$request->get('name'),
-            'count'=>$request->get('count'),
-            'apartment_id'=>$id,
-        ]);
+        $place = Places::where('apartment_id',$id)
+                ->where('name',$request->name)->first();
+
+        if(empty($place)){
+            Places::updateOrCreate([
+                'name'=>$request->get('name'),
+                'count'=>$request->get('count'),
+                'apartment_id'=>$id,
+            ]);
+        }
 
         $notification = [
             'message' => 'Muvofaqqiyatli ravishda  qo\'shildi',
@@ -100,5 +119,22 @@ class ApartmentController extends Controller
         ];
         return redirect()->route('show_places',$id)->with($notification);
 
+    }
+
+    public function delete(Request $request, $id, $place){
+        $place = Places::findOrfail($place);
+
+        $place->delete();
+
+        return redirect()->back();
+    }
+
+    public function get_places(Request $request){
+        $places = Places::where('apartment_id', $request->id)->get();
+        $str = "";
+        foreach ($places as $value){
+            $str .= '<option value="'.$value->id.'">'.$value->name.'-qavat ('.$value->count-$value->arizalar->count().' ta bo\'sh joy)</option>';
+         }
+        echo $str;
     }
 }

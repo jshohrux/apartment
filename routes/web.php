@@ -41,4 +41,5 @@ Route::get('districts-regions', [RegionController::class, 'get_districts'])->nam
 Route::get('get-speciality', [FacultyController::class, 'get_speciality'])->name('get_speciality');
 Route::get('meyoriy-hujjatlar', [AdminController::class, 'documents'])->name('documents');
 
+
 require __DIR__.'/admin.php';

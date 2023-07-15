@@ -40,8 +40,9 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('places/{id}',[ApartmentController::class, 'show_places'])->name('show_places');
             Route::get('places/{id}/add',[ApartmentController::class, 'add'])->name('add.places');
             Route::post('places/{id}/store', [ApartmentController::class, 'add_store'])->name('add.store');
-            Route::get('places/{id}/edit/{place}',[ApartmentController::class, 'edit'])->name('add.edit');
-
+            Route::get('places/{id}/edit/{place}',[ApartmentController::class, 'places_edit'])->name('add.edit');
+            Route::put('places/{id}/update/{place}',[ApartmentController::class, 'places_update'])->name('add.update');
+            Route::get('places/{id}/delete/{place}',[ApartmentController::class, 'delete'])->name('add.delete');
         });
 
         Route::group(['prefix' => 'arizalar'], function () {
@@ -83,6 +84,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('sozlamalar', [AdminController::class, 'sozlamalar'])->name('sozlamalar');
         Route::put('general/{id}', [AdminController::class, 'general'])->name('general');
+        Route::get('get-places',[ApartmentController::class, 'get_places'])->name('places');
     });
 });
 

@@ -13,7 +13,8 @@
                 <small class="text-muted float-end">Default label</small>
               </div>
               <div class="card-body">
-                <form action="{{route('add.store',$apartment->id)}}" method="POST">
+                <form action="{{route('add.update',[$apartment->id,$place->id])}}" method="POST">
+                    {{method_field('PUT')}}
                     @csrf
                     <div class="mb-2">
                         <label class="form-label" for="floor">Qavatni tanlang</label>

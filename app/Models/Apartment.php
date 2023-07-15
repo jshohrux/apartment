@@ -12,4 +12,16 @@ class Apartment extends Model
     public function places(){
         return $this->hasMany(Places::class, 'apartment_id');
     }
+
+    public function arizalar(){
+        return $this->hasMany(Ariza::class, 'apartment_id');
+    }
+
+    public function empty_places(){
+        return $this->places->sum('count') - $this->arizalar->count();
+    }
+
+    public function total(){
+        return $this->places->sum('count');
+    }
 }

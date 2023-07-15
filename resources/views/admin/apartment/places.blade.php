@@ -26,6 +26,7 @@
                     <thead class="table-primary">
                     <tr>
                         <th>#</th>
+                        <th>ID</th>
                         <th>Qavatlar</th>
                         <th>Umumiy joylar soni</th>
                         <th>Qolgan joylar soni</th>
@@ -37,6 +38,9 @@
                         <tr>
                             <td>
                                 {{++$key}}
+                            </td>
+                            <td>
+                                {{$place->id}}
                             </td>
                             <td>
                                 <strong>
@@ -51,7 +55,7 @@
                             </td>
                             <td>
                                 <a href="{{route('add.edit',[$apartment->id,$place->id])}}"><i class="ti ti-pencil me-1"></i></a>
-                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                                <a href="{{route('add.delete',[$apartment->id,$place->id])}}"> <i class="ti ti-trash me-1"></i></a>
                             </td>
                         </tr>
                     @endforeach

@@ -104,88 +104,6 @@
             <form class="card-body" action="{{route('ariza_update',$ariza->id)}}" method="POST">
                 @csrf
                 {{method_field('PUT')}}
-                {{-- <div class="row g-3">
-                    <div class="col-md-6">
-                    <label class="form-label" for="multicol-username">Ism familya</label>
-                    <input type="text" id="multicol-username" class="form-control" value="{{$ariza->user->name}}" disabled/>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label" for="multicol-username">Jinsi</label>
-                        <input type="text" id="multicol-username" class="form-control" value="{{$ariza->gender==1 ? 'Erkak' : 'Ayol'}}" disabled/>
-                    </div>
-                    <div class="col-md-6">
-                    <label class="form-label" for="multicol-email">Telefon raqami</label>
-                    <div class="input-group input-group-merge">
-                        <input
-                        type="text"
-                        id="multicol-email"
-                        class="form-control"
-                        value="{{$ariza->user->phone}}"
-                        disabled
-                        aria-describedby="multicol-email2"
-                        />
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                    <div class="form-password-toggle">
-                        <label class="form-label" for="multicol-password">Kursi</label>
-                        <div class="input-group input-group-merge">
-                        <input
-                            type="text"
-                            id="multicol-password"
-                            class="form-control"
-                            value="{{$ariza->course}}-Kurs"
-                            disabled
-                        ></span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                    <div class="form-password-toggle">
-                        <label class="form-label" for="multicol-confirm-password">Fakultet</label>
-                        <div class="input-group input-group-merge">
-                        <input
-                            type="text"
-                            id="multicol-confirm-password"
-                            class="form-control"
-                            value="{{$ariza->faculty->name}}"
-                            disabled
-                        />
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="multicol-confirm-password">Mutaxasislik</label>
-                            <div class="input-group input-group-merge">
-                            <input
-                                type="text"
-                                id="multicol-confirm-password"
-                                class="form-control"
-                                value="{{$ariza->specialty->name}}"
-                                disabled
-                            />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="multicol-confirm-password">Manzil</label>
-                            <div class="input-group input-group-merge">
-                            <input
-                                type="text"
-                                id="multicol-confirm-password"
-                                class="form-control"
-                                value="{{$ariza->city}}"
-                                disabled
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
               <h6>Ariza</h6>
               <div class="row g-3">
                 <div class="col-md-12">
@@ -203,7 +121,7 @@
                 <div class="row g-3 ms-0 me-0" id="form" style="padding-left: 0px; padding-right: 0px">
                     <div class="col-md-6">
                         <label class="form-label" for="status">Yotoqxonani tanlang</label>
-                        <select name="apartment" id="apartment" class="select2 form-select" data-allow-clear="true">
+                        <select name="apartment" id="apartment" class="select2 form-select" onchange="selectApartment(this)">
                             <option value="">Yotoqxonani tanlang</option>
                             <option value="1">1-Yotoqxona</option>
                             <option value="2">2-Yotoqxona</option>
@@ -245,15 +163,35 @@
 @endsection
 
 @section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript" language="javascript"></script>
     <script>
         function myFunction() {
             var x = document.getElementById("status").value;
-            // document.getElementById("demo").innerHTML = "You selected: " + x;
             console.log(x);
             if(x==1){
                 $("#form").removeClass("d-none");
             }else{
                 $("#form").addClass("d-none");
+            }
+        }
+    </script>
+    <script>
+        function selectApartment(selectObject) {
+            var id = selectObject.value;
+            console.log(id)
+            if (id) {
+                $.ajax({
+                    type: "get",
+                    url: "/admin/get-places",
+                    data: { id: id },
+                    cache: false,
+                    success: function (data) {
+                        select = document.getElementById("floor");
+                        select.innerHTML = data;
+                        select.disabled=false;
+                    },
+                    error: function (data) {},
+                });
             }
         }
     </script>

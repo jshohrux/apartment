@@ -21,16 +21,18 @@
                     </caption>
                     <thead class="table-info">
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Yotoqxona</th>
+                        <th>Umumiy joylar soni</th>
+                        <th>Qolgan joylar soni</th>
                         <th>Amallar</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @foreach($apartments as $apartment)
+                    @foreach($apartments as $key=>$apartment)
                         <tr class="fs-30">
                             <td>
-                                {{$apartment->id}}
+                                {{++$key}}
                             </td>
                             <td>
                                 <strong>
@@ -39,9 +41,11 @@
                                     </a>
                                 </strong>
                             </td>
+                            <td>{{$apartment->total()}}</td>
+                            <td>{{$apartment->empty_places()}}</td>
                             <td>
-                                <a href="{{route('speciality.edit',$apartment->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                                <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                                <a href="#"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="#"> <i class="ti ti-trash me-1"></i></a>
                             </td>
                         </tr>
                     @endforeach
