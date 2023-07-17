@@ -26,7 +26,7 @@
                     <thead class="table-primary">
                     <tr>
                         <th>#</th>
-                        <th>ID</th>
+   
                         <th>Qavatlar</th>
                         <th>Umumiy joylar soni</th>
                         <th>Qolgan joylar soni</th>
@@ -39,9 +39,7 @@
                             <td>
                                 {{++$key}}
                             </td>
-                            <td>
-                                {{$place->id}}
-                            </td>
+
                             <td>
                                 <strong>
                                     {{$place->name}} - Qavat

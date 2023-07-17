@@ -1,11 +1,10 @@
 @extends('front.app')
+
 @section('content')
-    <div class="col-md-12 mb-4">
-        {{-- <h6 class="text-muted mt-3">With arrows</h6> --}}
-        {{-- swipper --}}
+    {{-- <div class="col-md-12 mb-4">
         <div class="swiper" id="swiper-with-arrows" style="height: 700px">
             <div class="swiper-wrapper">
-                <div class="swiper-slide d-flex align-items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+                <div class="swiper-slide d-flex align-items-center img-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
                     url({{asset('static/assets/img/elements/1.jpg')}})">
                     <div class="container" style="max-width: none;">
                         <p class="font-medium-10 text-uppercase"> TALABALAR TURAR JOYI TALABALARNI BIRLASHTIRADI ! </p>
@@ -28,53 +27,91 @@
                         <p class="font-medium-10 text-uppercase"> TALABALAR TURAR JOYI TALABALARNI BIRLASHTIRADI ! </p>
                     </div>
                 </div>
-                {{--                     <div class="swiper-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url({{asset('static/assets/img/elements/7.jpg')}})">--}}
-                {{--                      Slide 5--}}
-                {{--                    </div>--}}
             </div>
             <div class="swiper-button-next swiper-button-white custom-icon"></div>
             <div class="swiper-button-prev swiper-button-white custom-icon"></div>
         </div>
-        {{-- swipper --}}
+    </div> --}}
 
-        {{--               <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">--}}
-        {{--                    <ol class="carousel-indicators">--}}
-        {{--                        <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true"></li>--}}
-        {{--                        <li data-bs-target="#carouselExample" data-bs-slide-to="1" class=""></li>--}}
-        {{--                        <li data-bs-target="#carouselExample" data-bs-slide-to="2" class=""></li>--}}
-        {{--                    </ol>--}}
-        {{--                    <div class="carousel-inner">--}}
-        {{--                        <div class="carousel-item active d-flex align-items-center">--}}
-        {{--                        <img class="img-fluid d-block w-100" src="static/assets/img/slide/1.jpg" alt="First slide">--}}
-        {{--                        <div class="carousel-caption d-none d-md-block">--}}
-        {{--                            <h4>First slide</h4>--}}
-        {{--                            <p>Eos mutat malis maluisset et, agam ancillae quo te, in vim congue pertinacia.</p>--}}
-        {{--                        </div>--}}
-        {{--                        </div>--}}
-        {{--                        <div class="carousel-item">--}}
-        {{--                        <img style="margin-top: -150px" class="img-fluid d-block w-100" src="static/assets/img/slide/2.jpg" alt="Second slide">--}}
-        {{--                        <div class="carousel-caption d-none d-md-block">--}}
-        {{--                            <h4>Second slide</h4>--}}
-        {{--                            <p>In numquam omittam sea.</p>--}}
-        {{--                        </div>--}}
-        {{--                        </div>--}}
-        {{--                        <div class="carousel-item">--}}
-        {{--                        <img class="img-fluid d-block w-100" src="static/assets/img/slide/1.jpg" alt="Third slide">--}}
-        {{--                        <div class="carousel-caption d-none d-md-block">--}}
-        {{--                            <h4>Third slide</h4>--}}
-        {{--                            <p>Lorem ipsum dolor sit amet, virtute consequat ea qui, minim graeco mel no.</p>--}}
-        {{--                        </div>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                    <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">--}}
-        {{--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-        {{--                        <span class="visually-hidden">Previous</span>--}}
-        {{--                    </a>--}}
-        {{--                    <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">--}}
-        {{--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-        {{--                        <span class="visually-hidden">Next</span>--}}
-        {{--                    </a>--}}
-        {{--               </div>--}}
+    <!-- Content -->
 
-    </div>
+    <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="row">
+          <!-- Website Analytics -->
+          <div class="col-lg-6 mb-4">
+            <div class="col-md">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{asset('static/assets/img/elements/1.jpg')}}" alt="First slide" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>TALABALAR TURAR JOYI TALABALARNI BIRLASHTIRADI !</h4>
+                        {{-- <p>Eos mutat malis maluisset et, agam ancillae quo te, in vim congue pertinacia.</p> --}}
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <img class="d-block w-100" src="{{asset('static/assets/img/elements/2.jpg')}}" alt="Second slide" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>TALABALAR TURAR JOYI TALABALARNI BIRLASHTIRADI !</h4>
+                        {{-- <p>In numquam omittam sea.</p> --}}
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <img class="d-block w-100" src="{{asset('static/assets/img/elements/3.jpg')}}" alt="Third slide" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>TALABALAR TURAR JOYI TALABALARNI BIRLASHTIRADI !</h4>
+                        {{-- <p>Lorem ipsum dolor sit amet, virtute consequat ea qui, minim graeco mel no.</p> --}}
+                    </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+                </div>
+            </div>
+          </div>
+          <!--/ Website Analytics -->
+
+          <!-- Sales Overview -->
+          <div class="col-lg-6 col-sm-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                    <h4>Universitet talabalar turar joyiga birinchi navbatda quyidagi mezonlar asosida joylashtiriladi.</h4>
+                    <ul style="list-style: none">
+                        <li>- Kam ta’minlangan oilafarzandlari</li>
+                        <li>- Bo‘quvchisini yo‘qotgan ko‘p bolali oila farzandlari</li>
+                        <li>- I va II guruh nogironligi bo‘lgan talaba</li>
+                        <li>- To‘liq davlat ta’minotida bo‘lgan (chin yetim)</li>
+                        <li>- Oilasida 2 va undan ortiq to‘lov-kontrakt asosida ta’lim oluvchi talaba</li>
+                        <li>- “Temir daftar”ga tushgan oila farzandi</li>
+                        <li>- Ota-onasining doimiy ish joyi mavjud bo‘lmagan talaba</li>
+                        <li>- Oilasida I va II guruh nogironligi yoki surunkali kasallik bilan davolanadigani mavjud bo‘lgan talaba
+                            Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</li>
+                        <li>- Chin yetim va I guruh nogironligi bo‘lgan talabalar uchun bepul;</li>
+                        <li>- II guruh nogironligi bo‘lgan talabalar uchun 50 foiz chegirma mavjud.</li>
+                    </ul>
+                    <h4>Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</h4>
+                    <ul style="list-style: none">
+                        <li>- Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</li>
+                        <li>- II guruh nogironligi bo‘lgan talabalar uchun 50 foiz chegirma mavjud.</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ Sales Overview -->
+        </div>
+      </div>
+      <!--/ Content -->
 @endsection

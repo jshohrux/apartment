@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Places;
+use App\Models\Ariza;
 
 class ApartmentController extends Controller
 {
@@ -133,7 +134,9 @@ class ApartmentController extends Controller
         $places = Places::where('apartment_id', $request->id)->get();
         $str = "";
         foreach ($places as $value){
-            $str .= '<option value="'.$value->id.'">'.$value->name.'-qavat ('.$value->count-$value->arizalar->count().' ta bo\'sh joy)</option>';
+            $arizalar = Ariza::where('apartment_id',$request->id)
+                        ->where('floor',$value->name)->count();
+            $str .= '<option value="'.$value->id.'">'.$value->name.'-qavat ('.$value->count-$arizalar.' ta bo\'sh joy)</option>';
          }
         echo $str;
     }
