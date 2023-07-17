@@ -46,7 +46,7 @@
                                     </li>
 
                                     <li class="d-flex align-items-center mb-3">
-                                        <i class="ti ti-flag"></i><span class="fw-bold mx-2">Tuman:</span> <span>ZAfarobod</span>
+                                        <i class="ti ti-flag"></i><span class="fw-bold mx-2">Tuman:</span> <span>{{$ariza->district->name}}</span>
                                     </li>
 
                                     <li class="d-flex align-items-center mb-3">
