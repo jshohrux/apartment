@@ -112,6 +112,81 @@
           </div>
           <!--/ Sales Overview -->
         </div>
-      </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6 col-xl-3">
+              <div class="card mb-3">
+                <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/1.jpg')}}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title text-center">Talabalar yotoqxonasi</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/2.jpg')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Talabalar uchun kutubxona</h5>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/3.png')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Workaut maydonchasi</h5>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/4.png')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Talabalar oshxona</h5>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/5.png')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Sport maydonchasi</h5>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/6.png')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Talabalar dam olish xonasi</h5>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/7.png')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Kir yuvish xonasi</h5>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/8.png')}}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Kirish joyi</h5>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
       <!--/ Content -->
 @endsection
