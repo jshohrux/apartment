@@ -105,6 +105,7 @@
                     <ul style="list-style: none">
                         <li>- Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</li>
                         <li>- II guruh nogironligi bo‘lgan talabalar uchun 50 foiz chegirma mavjud.</li>
+                        <li>- Chin yetim va I guruh nogironligi mavjud bo'lgan talabalarga bepul</li>
                     </ul>
                 </div>
               </div>

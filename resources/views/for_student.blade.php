@@ -140,7 +140,7 @@
                             </div>
                             <div class="col-md-4 col-lg-4">
                                 <div class="card mb-4">
-                                    <img class="card-img-top" src="{{asset('static/assets/img/elements/students/8.jpg')}}" alt="Card image cap" />
+                                    <img class="card-img-top rounded" src="{{asset('static/assets/img/elements/students/8.jpg')}}" alt="Card image cap" />
                                 </div>
                             </div>
                             <div class="col-md-4 col-lg-4">
