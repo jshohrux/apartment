@@ -34,7 +34,7 @@
                             </strong>
                         </td>
                         <td>
-                            +{{$ariza->phone}}
+                            {{$ariza->phone}}
                         </td>
                         <td>
                             {{$ariza->faculty->name}}
