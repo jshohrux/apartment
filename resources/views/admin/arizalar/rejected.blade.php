@@ -30,11 +30,11 @@
                         <tr>
                         <td>
                             <strong>
-                                {{$ariza->user->name}}
+                                {{$ariza->fullname}}
                             </strong>
                         </td>
                         <td>
-                            +{{$ariza->user->phone}}
+                            +{{$ariza->phone}}
                         </td>
                         <td>
                             {{$ariza->faculty->name}}
@@ -53,7 +53,7 @@
                         </td>
                         <td>
                             <a href="{{route('ariza_edit',$ariza->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                            <a href="#"> <i class="ti ti-trash me-1"></i></a>
                         </td>
                     </tr>
                     @endforeach

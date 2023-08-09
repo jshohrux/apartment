@@ -28,7 +28,7 @@
         <li class="menu-item {{ request()->is('admin/students*') ? 'active' : ''}}">
             <a href="{{route('students')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
-                <div data-i18n="Talabalar">Talabalar</div>
+                <div data-i18n="Foydalanuvchilar">Foydalanuvchilar</div>
             </a>
         </li>
         <li class="menu-item {{ request()->is('admin/apartment*') ? 'active' : ''}}">

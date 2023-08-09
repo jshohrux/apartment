@@ -13,7 +13,7 @@
                     <span class="text-success">(+29%)</span>
                   </div>
                   <span>
-                    <a href="#">
+                    <a href="{{route('students')}}">
                         Ko'rish
                     </a>
                   </span>
@@ -36,7 +36,7 @@
                     <span class="text-success">(+18%)</span>
                   </div>
                   <span>
-                    <a href="">
+                    <a href="{{route('accepted')}}">
                         Ko'rish
                     </a>
                   </span>
@@ -59,7 +59,7 @@
                     <span class="text-danger">(-14%)</span>
                   </div>
                   <span>
-                    <a href="">
+                    <a href="{{route('rejected')}}">
                         Ko'rish
                     </a>
                   </span>
@@ -82,7 +82,7 @@
                     <span class="text-success">(+42%)</span>
                   </div>
                   <span>
-                    <a href="">
+                    <a href="{{route('new')}}">
                         Ko'rish
                     </a>
                   </span>
@@ -94,6 +94,43 @@
             </div>
           </div>
         </div>
+
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div class="content-left">
+                    <span>O'g'il bolalar</span>
+                    <div class="d-flex align-items-center my-1">
+                      <h4 class="mb-0 me-2">{{$male}}</h4>
+                    </div>
+                  </div>
+                  <span class="badge bg-label-warning rounded p-2">
+                    <i class="ti ti-user-exclamation ti-sm"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div class="content-left">
+                    <span>Qiz bolalar</span>
+                    <div class="d-flex align-items-center my-1">
+                      <h4 class="mb-0 me-2">{{$famale}}</h4>
+                    </div>
+                  </div>
+                  <span class="badge bg-label-warning rounded p-2">
+                    <i class="ti ti-user-exclamation ti-sm"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
 </div>
 @endsection

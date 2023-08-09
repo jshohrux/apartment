@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Ariza;
 use App\Models\User;
 use App\Models\Places;
+use App\Models\Region;
+use App\Models\Faculty;
 use Illuminate\Support\Facades\Auth;
 use Storage;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +23,12 @@ class AdminController extends Controller
         $active = Ariza::where('status',1)->count();
         $inactive = Ariza::where('status',-1)->count();
         $pending = Ariza::where('status',0)->count();
-        return view('admin.dashboard', compact('users','active','inactive','pending'));
+        $male = Ariza::where('status',1)
+                        ->where('gender',1)->count();
+
+        $famale = Ariza::where('status',1)
+                    ->where('gender',2)->count();
+        return view('admin.dashboard', compact('users','active','inactive','pending','male','famale'));
     }
 
     public function arizalar(Request $request){
@@ -61,9 +68,20 @@ class AdminController extends Controller
         return view('admin.arizalar.new', compact('arizalar'));
     }
 
-    public function accepted(Request $request){
-        $arizalar = Ariza::where('status',1)->orderBy('id','desc')->get();
-        return view('admin.arizalar.accepted', compact('arizalar'));
+    public function accepted(Request $filter){
+
+        $query = Ariza::where('status',1)->orderBy('id','desc');
+        if($filter->has('region') && $filter->get('region')!=NULL){
+            $query->where('region_id',$filter->get('region'));
+        }
+        if($filter->has('faculty') && $filter->get('faculty')!=NULL){
+            $query->where('faculty_id',$filter->get('faculty'));
+        }
+        $arizalar =  $query->paginate(10);
+        $regions = Region::all();
+        $faculties = Faculty::all();
+        $count = $arizalar->count();
+        return view('admin.arizalar.accepted', compact('arizalar','regions','faculties','count'));
     }
 
     public function rejected(Request $request){

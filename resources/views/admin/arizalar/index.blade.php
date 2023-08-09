@@ -21,6 +21,7 @@
                         <th>Telefon raqami</th>
                         <th>Fakulteti</th>
                         <th>Mutaxasislik</th>
+                        <th>Yuborilgan vaqti</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -30,17 +31,20 @@
                         <tr>
                         <td>
                             <strong>
-                                {{$ariza->user->name}}
+                                {{$ariza->fullname}}
                             </strong>
                         </td>
                         <td>
-                            +{{$ariza->user->phone}}
+                            +{{$ariza->phone}}
                         </td>
                         <td>
                             {{$ariza->faculty->name}}
                         </td>
                         <td>
                             {{$ariza->specialty->name}}
+                        </td>
+                        <td>
+                            {{$ariza->created_at}}
                         </td>
                         <td>
                             @if($ariza->status==0)
@@ -53,7 +57,7 @@
                         </td>
                         <td>
                             <a href="{{route('ariza_edit',$ariza->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                            <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                            <a href="#"> <i class="ti ti-trash me-1"></i></a>
                         </td>
                     </tr>
                     @endforeach

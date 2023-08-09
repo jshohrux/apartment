@@ -10,10 +10,50 @@
         <h4 class="fw-bold mb-3"><span class="text-muted fw-light">Bosh sahifa /</span> Arizalar ro'yxati</h4>
         <div class="card">
             <h5 class="card-header">Arizalar</h5>
+            <div class="card-body">
+                <form action="{{route('accepted')}}" method="GET">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label" for="region">Viloyatni tanlang</label>
+                            <select name="region" id="region" class="select2 form-select" onchange="selectRegion(this)">
+                                <option value="">Tanlang</option>
+                                @foreach ($regions as $region)
+                                    <option value="{{$region->id}}" {{$region->id==request('region') ? 'selected' : ''}}>{{$region->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('region'))
+                                <div class="invalid-feedback d-block">
+                                    {{$errors->first('region')}}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label" for="region">Faklutetni tanlang</label>
+                            <select name="faculty" id="faculty" class="select2 form-select" onchange="selectRegion(this)">
+                                <option value="">Tanlang</option>
+                                @foreach ($faculties as $faculty)
+                                    <option value="{{$faculty->id}}" {{$faculty->id==request('faculty') ? 'selected' : ''}}>{{$faculty->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('region'))
+                                <div class="invalid-feedback d-block">
+                                    {{$errors->first('region')}}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <button type="submit" class="btn btn-success">Qidirish</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <caption class="ms-4">
-                        Arizalar ro'yxati
+                        Jami arizalar soni : {{$count}}
                     </caption>
                     <thead class="table">
                     <tr>
@@ -34,11 +74,11 @@
                         <tr>
                         <td>
                             <strong>
-                                {{$ariza->user->name}}
+                                {{$ariza->fullname}}
                             </strong>
                         </td>
                         <td>
-                            +{{$ariza->user->phone}}
+                            {{$ariza->phone}}
                         </td>
                         <td>
                             {{$ariza->course}}-Kurs

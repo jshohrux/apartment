@@ -61,8 +61,8 @@
 
 
                     <div class="col-md-6">
-                        <label class="form-label" for="faculty">Tug'ilgan sana</label>
-                        <input name="birthday" type="date" class="form-control" value="{{old('birthday')}}">
+                        <label class="form-label" for="birthday">Tug'ilgan sana</label>
+                        <input name="birthday" type="date" class="form-control" value="{{old('birthday')}}" id="birthday">
                         @if($errors->has('birthday'))
                             <div class="invalid-feedback d-block">
                                 {{$errors->first('birthday')}}
@@ -84,6 +84,7 @@
                     <div class="col-md-6">
                         <label class="form-label" for="faculty">Fakultetni tanlang</label>
                         <select name="faculty" id="faculty" class="select2 form-select" onchange="selectSpeciality(this)">
+                            <option value="none" selected disabled hidden>Tanlang</option>
                             @foreach ($faculties as $faculty)
                                 <option value="{{$faculty->id}}">{{$faculty->name}}</option>
                             @endforeach
@@ -98,10 +99,16 @@
                     <div class="col-md-6">
                         <label class="form-label" for="speciality">Yo'nalishingizni tanlang</label>
                         <select name="speciality" id="speciality" class="select2 form-select" >
-                            @foreach ($speciality as $speciality)
+                            {{-- @foreach ($speciality as $speciality)
                                 <option value="{{$speciality->id}}">{{$speciality->name}}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
+
+                        @if($errors->has('speciality'))
+                            <div class="invalid-feedback d-block">
+                                {{$errors->first('speciality')}}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-md-6">
@@ -135,24 +142,37 @@
                     <div class="col-md-6">
                         <label class="form-label" for="region">Viloyatni tanlang</label>
                         <select name="region" id="region" class="select2 form-select" onchange="selectRegion(this)">
+                            <option value="none" selected disabled hidden>Tanlang</option>
                             @foreach ($regions as $region)
                                 <option value="{{$region->id}}">{{$region->name}}</option>
                             @endforeach
                         </select>
+
+                        @if($errors->has('region'))
+                            <div class="invalid-feedback d-block">
+                                {{$errors->first('region')}}
+                            </div>
+                        @endif
+
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="district">Tumanni tanlang</label>
-                        <select name="district" id="district" class="select2 form-select" data-allow-clear="true">
-                            @foreach ($districts as $district)
+                        <select name="district" id="district" class="select2 form-select">
+                            {{-- @foreach ($districts as $district)
                                 <option value="{{$district->id}}">{{$district->name}}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
+                        @if($errors->has('district'))
+                            <div class="invalid-feedback d-block">
+                                {{$errors->first('district')}}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-md-12">
                         <label class="form-label" for="address">manzil</label>
-                        <textarea id="address" class="form-control" name="address" id=""></textarea>
+                        <textarea id="address" class="form-control" name="address" id="">{{ old('address')}}</textarea>
                     </div>
 
                     <div class="col-md-12">
@@ -188,7 +208,7 @@
 
     let accountUserImage = document.getElementById('uploadedAvatar');
     const fileInput = document.querySelector('.account-file-input'),
-      resetFileInput = document.querySelector('.account-image-reset');
+    resetFileInput = document.querySelector('.account-image-reset');
 
     if (accountUserImage) {
       const resetImage = accountUserImage.src;

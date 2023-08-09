@@ -13,6 +13,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['auth','is_admin']], function () {
         Route::get('dashboard',[AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('students',[StudentController::class, 'index'])->name('students');
+        Route::get('students/{id}',[StudentController::class, 'edit'])->name('student.edit');
+        Route::put('change-role',[StudentController::class, 'change_role'])->name('change_role');
 
         Route::group(['prefix' => 'faculty'], function () {
             Route::get('',[FacultyController::class, 'index'])->name('faculty');

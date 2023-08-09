@@ -20,6 +20,7 @@
                         <th>#</th>
                         <th>Ism familya</th>
                         <th>Telefon raqami</th>
+                        <th>Role</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -38,9 +39,12 @@
                             <td>
                                 +{{$student->phone}}
                             </td>
+                            <td>
+                                {{$student->role->name}}
+                            </td>
                             <td><span class="badge bg-label-primary me-1">Active</span></td>
                             <td>
-                                <a href="#"><i class="ti ti-pencil me-1"></i></a>
+                                <a href="{{route('student.edit',$student->id)}}"><i class="ti ti-pencil me-1"></i></a>
                                 <a href="#"> <i class="ti ti-trash me-1"></i></a>
                             </td>
                         </tr>

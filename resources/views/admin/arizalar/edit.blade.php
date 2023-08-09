@@ -24,7 +24,17 @@
                                 <small class="card-text text-uppercase">Talaba xaqida</small>
                                 <ul class="list-unstyled mb-4 mt-3">
                                     <li class="d-flex align-items-center mb-3">
-                                        <i class="ti ti-user"></i><span class="fw-bold mx-2">FIO:</span> <span>{{$ariza->user->name}}</span>
+                                        <i class="ti ti-user"></i><span class="fw-bold mx-2">FIO:</span> <span>{{$ariza->fullname}}</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-user"></i><span class="fw-bold mx-2">Jinsi:</span>
+                                        <span>
+                                            @if($ariza->gender==1)
+                                                Erkak
+                                            @else
+                                                Ayol
+                                            @endif
+                                        </span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="ti ti-check"></i><span class="fw-bold mx-2">Status:</span>
@@ -57,6 +67,7 @@
                                         <span>{{$ariza->birthday}}</span>
                                     </li>
 
+
                                 </ul>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-5">
@@ -65,6 +76,10 @@
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="ti ti-phone-call"></i><span class="fw-bold mx-2">Telefon:</span>
                                         <span>{{$ariza->phone}}</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="ti ti-ad"></i><span class="fw-bold mx-2">Passport:</span>
+                                        <span>{{$ariza->passport}}</span>
                                     </li>
                                 </ul>
                                 <small class="card-text text-uppercase">O'qish</small>
@@ -81,18 +96,14 @@
                                         <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Kursi:</span>
                                         <span>{{$ariza->course}}-Kurs</span>
                                     </li>
+                                    @if($ariza->file)
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="ti ti-file"></i><span class="fw-bold mx-2">Asoslovchi hujjat:</span>
                                         <span>
-                                            <a href="{{Storage::url($ariza->file)}}">Ko'rish</a>
+                                            <a href="{{Storage::url($ariza->file)}}" target="_blank">Ko'rish</a>
                                         </span>
                                     </li>
-                                    {{-- <li class="d-flex align-items-center mb-3">
-                                      <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Qaysi tilni biladi:</span>
-                                      @foreach($user->languages as $language)
-                                      <span class="badge bg-label-info ms-1">{{$language->name}}</span>
-                                      @endforeach
-                                    </li> --}}
+                                    @endif
                                 </ul>
 
                             </div>
