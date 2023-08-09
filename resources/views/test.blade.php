@@ -87,7 +87,7 @@
           <!--/ Website Analytics -->
 
           <!-- Sales Overview -->
-          <div class="col-lg-6 col-sm-6 mb-4">
+          <div class="col-lg-6 mb-4">
             <div class="card">
               <div class="card-body">
                 <div class="row">
