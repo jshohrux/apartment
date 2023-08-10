@@ -3,10 +3,10 @@
 <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
     <div class="container-fluid">
         <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
-            <a href="index.html" class="app-brand-link gap-2">
-                        <span class="logo">
-                            <img src="{{asset('static/assets/img/logo.png')}}" alt="" class="img" width="180">
-                        </span>
+            <a href="{{route('bosh_sahifa')}}" class="app-brand-link gap-2">
+                <span class="logo">
+                    <img src="{{asset('static/assets/img/logo.png')}}" alt="" class="img" width="180">
+                </span>
             </a>
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
                 <i class="ti ti-x ti-sm align-middle"></i>

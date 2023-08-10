@@ -36,9 +36,23 @@
                                     <option value="{{$faculty->id}}" {{$faculty->id==request('faculty') ? 'selected' : ''}}>{{$faculty->name}}</option>
                                 @endforeach
                             </select>
-                            @if($errors->has('region'))
+                            @if($errors->has('faculty'))
                                 <div class="invalid-feedback d-block">
-                                    {{$errors->first('region')}}
+                                    {{$errors->first('faculty')}}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label" for="region">Jinsni tanlang</label>
+                            <select name="gender" id="gender" class="select2 form-select" onchange="selectRegion(this)">
+                                <option value="">Tanlang</option>
+                                <option value="1" {{1==request('gender') ? 'selected' : ''}}>Erkak</option>
+                                <option value="2" {{2==request('gender') ? 'selected' : ''}}>Ayol</option>
+                            </select>
+                            @if($errors->has('faculty'))
+                                <div class="invalid-feedback d-block">
+                                    {{$errors->first('faculty')}}
                                 </div>
                             @endif
                         </div>

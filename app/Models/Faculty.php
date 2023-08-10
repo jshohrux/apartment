@@ -15,4 +15,8 @@ class Faculty extends Model
     public function specialities(){
         return $this->hasMany(Specialty::class, 'faculty_id');
     }
+
+    public function arizalar(){
+        return $this->hasMany(Ariza::class, 'faculty_id');
+    }
 }

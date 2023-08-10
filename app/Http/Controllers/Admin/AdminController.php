@@ -19,6 +19,7 @@ class AdminController extends Controller
     //
 
     public function index(Request $request){
+        $all = Ariza::count();
         $users = User::where('role_id',2)->count();
         $active = Ariza::where('status',1)->count();
         $inactive = Ariza::where('status',-1)->count();
@@ -28,7 +29,7 @@ class AdminController extends Controller
 
         $famale = Ariza::where('status',1)
                     ->where('gender',2)->count();
-        return view('admin.dashboard', compact('users','active','inactive','pending','male','famale'));
+        return view('admin.dashboard', compact('users','active','inactive','pending','male','famale','all'));
     }
 
     public function arizalar(Request $request){
@@ -77,7 +78,10 @@ class AdminController extends Controller
         if($filter->has('faculty') && $filter->get('faculty')!=NULL){
             $query->where('faculty_id',$filter->get('faculty'));
         }
-        $arizalar =  $query->paginate(10);
+        if($filter->has('gender') && $filter->get('gender')!=NULL){
+            $query->where('gender',$filter->get('gender'));
+        }
+        $arizalar =  $query->get();
         $regions = Region::all();
         $faculties = Faculty::all();
         $count = $arizalar->count();
@@ -222,5 +226,10 @@ class AdminController extends Controller
     public function all_regions(Request $request){
         $regions = Region::all();
         return view('admin.statistics.regions', compact('regions'));
+    }
+
+    public function all_faculty(Request $request){
+        $faculties = Faculty::all();
+        return view('admin.statistics.faculty', compact('faculties'));
     }
 }
