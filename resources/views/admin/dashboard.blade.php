@@ -179,6 +179,29 @@
               </div>
             </div>
           </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div class="content-left">
+                    <span>Kurslar kesimida</span>
+                    <div class="d-flex align-items-center my-1">
+                      <h4 class="mb-0 me-2">{{$all}}</h4>
+                    </div>
+                    <span>
+                        <a href="{{route('all_course')}}">
+                            Ko'rish
+                        </a>
+                      </span>
+                  </div>
+                  <span class="badge bg-label-warning rounded p-2">
+                    <i class="ti ti-home ti-sm"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
 </div>
 @endsection

@@ -87,6 +87,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('viloyatlar-kesimida',[AdminController::class, 'all_regions'])->name('all_regions');
         Route::get('fakultetlar-kesimida',[AdminController::class, 'all_faculty'])->name('all_faculty');
+        Route::get('kurslar-kesimida',[AdminController::class, 'all_course'])->name('all_course');
     });
 });
 

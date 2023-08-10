@@ -232,4 +232,13 @@ class AdminController extends Controller
         $faculties = Faculty::all();
         return view('admin.statistics.faculty', compact('faculties'));
     }
+
+    public function all_course(Request $request){
+        $birinchi = Ariza::where('course',1)->count();
+        $ikkinchi = Ariza::where('course',2)->count();
+        $uchinchi = Ariza::where('course',3)->count();
+        $turtinchi = Ariza::where('course',4)->count();
+
+        return view('admin.statistics.course', compact('birinchi','ikkinchi','uchinchi','turtinchi'));
+    }
 }
