@@ -101,9 +101,7 @@
                         <li>- “Temir daftar”ga tushgan oila farzandi</li>
                         <li>- Ota-onasining doimiy ish joyi mavjud bo‘lmagan talaba</li>
                         <li>- Oilasida I va II guruh nogironligi yoki surunkali kasallik bilan davolanadigani mavjud bo‘lgan talaba
-                            Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</li>
-                        <li>- Chin yetim va I guruh nogironligi bo‘lgan talabalar uchun bepul;</li>
-                        <li>- II guruh nogironligi bo‘lgan talabalar uchun 50 foiz chegirma mavjud.</li>
+                        
                     </ul>
                     <h4>Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</h4>
                     <ul style="list-style: none">
