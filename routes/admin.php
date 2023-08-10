@@ -83,10 +83,9 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('edit/{id}', [AdminController::class,  'documents_edit'])->name('documents.edit');
             Route::put('update/{id}', [AdminController::class,  'documents_update'])->name('documents.update');
         });
-
-        Route::get('sozlamalar', [AdminController::class, 'sozlamalar'])->name('sozlamalar');
-        Route::put('general/{id}', [AdminController::class, 'general'])->name('general');
         Route::get('get-places',[ApartmentController::class, 'get_places'])->name('places');
+
+        Route::get('viloyatlar-kesimida',[AdminController::class, 'all_regions'])->name('all_regions');
     });
 });
 

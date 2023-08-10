@@ -175,7 +175,10 @@ class AdminController extends Controller
 
     public function sozlamalar(Request $request){
         $user = Auth::user();
-        return view('admin.settings',compact('user'));
+        if($user->role_id==1){
+            return view('admin.settings',compact('user'));
+        }
+        return view('settings',compact('user'));
     }
 
     public function general(Request $request,$id){
@@ -214,5 +217,10 @@ class AdminController extends Controller
         ];
         return redirect()->route('admin.dashboard')->with($notification);
 
+    }
+
+    public function all_regions(Request $request){
+        $regions = Region::all();
+        return view('admin.statistics.regions', compact('regions'));
     }
 }

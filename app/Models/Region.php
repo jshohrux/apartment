@@ -12,4 +12,9 @@ class Region extends Model
     protected $fillable=[
         'name',
     ];
+
+
+    public function arizalar(){
+        return $this->hasMany(Ariza::class, 'region_id');
+    }
 }

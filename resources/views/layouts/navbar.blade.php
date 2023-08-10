@@ -18,28 +18,6 @@
         <!-- /Search -->
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
-        <!-- Language -->
-        {{-- <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
-            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-            <i class="fi fi-uz fis rounded-circle me-1 fs-3"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                <i class="fi fi-uz fis rounded-circle me-1 fs-3"></i>
-                <span class="align-middle">O'zbek tili</span>
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="javascript:void(0);" data-language="ru">
-                <i class="fi fi-ru fis rounded-circle me-1 fs-3"></i>
-                <span class="align-middle">Русский</span>
-                </a>
-            </li>
-            </ul>
-        </li> --}}
-        <!--/ Language -->
-
 
         <!-- User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -72,13 +50,7 @@
                 <div class="dropdown-divider"></div>
             </li>
             <li>
-                <a class="dropdown-item" href="#">
-                <i class="ti ti-user-check me-2 ti-sm"></i>
-                <span class="align-middle">Mening ma'lumotlarim</span>
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{route('sozlamalar')}}">
                 <i class="ti ti-settings me-2 ti-sm"></i>
                 <span class="align-middle">Sozlamalar</span>
                 </a>
