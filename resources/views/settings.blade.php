@@ -9,6 +9,7 @@
                 <!-- Change Password -->
                 <div class="card mb-4">
                     <h5 class="card-header">Ma'lumotlarni o'zgartirish</h5>
+                
                     <div class="card-body">
                         <form id="formAccountSettings" method="POST" action="{{route('general',$user->id)}}">
                             {{method_field('PUT')}}

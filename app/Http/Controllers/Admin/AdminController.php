@@ -10,9 +10,10 @@ use App\Models\User;
 use App\Models\Places;
 use App\Models\Region;
 use App\Models\Faculty;
-use Illuminate\Support\Facades\Auth;
 use Storage;
 use Illuminate\Support\Facades\Hash;
+use Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -187,12 +188,25 @@ class AdminController extends Controller
 
     public function general(Request $request,$id){
         $user = User::findOrfail($id);
-        $request->validate([
-            'name'=>'required',
-            'phone'=>'required|min:17',
-        ]);
         $phone = $request->get('phone');
         $phone = preg_replace('/[^0-9]+/', '', $phone);
+        $data = $request->all();
+        $data['phone'] = $phone;
+        // $data->validate([
+        //     'name'=>'required',
+        //     'phone'=>'required|min:17|unique:users,phone,'.Auth::user()->id,
+        // ]);
+        $validator = Validator::make($data,[
+                'name'=>'required',
+                'phone'=>'required|min:12|unique:users,phone,'.Auth::user()->id,
+            ],[
+                'name.required'=>'Ism familya bo\'sh bo\'lmasligi kerak!',
+                'unique'=>'Bunday raqamga ega foydalanuvchi mavjud',
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
         $user->update([
             'name'=>$request->get('name'),
             'phone'=>$phone,
@@ -219,7 +233,10 @@ class AdminController extends Controller
             'message' => 'O\'zgartirildi',
             'alert-type' => 'success',
         ];
-        return redirect()->route('admin.dashboard')->with($notification);
+        if($user->role_id==1){
+            return redirect()->route('admin.dashboard')->with($notification);
+        }
+        return redirect()->route('home')->with($notification);
 
     }
 
