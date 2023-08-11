@@ -176,7 +176,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label class="form-label" for="file">Asoslovchi hujjatni yuklang</label>
+                        <label class="form-label" for="file">Talabalar turar joyiga joylashish uchun talabaning  asoslovchi hujjati (pdf, jpg)</label>
                         <input name="file" id="file" type="file" class="form-control">
                     </div>
                 </div>
