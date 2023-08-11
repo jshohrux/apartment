@@ -119,7 +119,7 @@
                             {{$ariza->apartment->name}}
                         </td>
                         <td>
-                            {{$ariza->floor}}-Qavat
+                            {{$ariza->place ? $ariza->place->name : ''}}-Qavat
                         </td>
                         <td>
                             <a href="{{route('ariza_edit',$ariza->id)}}"><i class="ti ti-pencil me-1"></i></a>
