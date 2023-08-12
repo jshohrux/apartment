@@ -278,4 +278,13 @@ class AdminController extends Controller
             'message'=>'ok'
         ]);
     }
+
+    public function documents_delete(Request $request){
+        $document = Document::findOrfail($request->id);
+        $document->delete();
+        return response()->json([
+            'status'=>1,
+            'message'=>'ok'
+        ]);
+    }
 }

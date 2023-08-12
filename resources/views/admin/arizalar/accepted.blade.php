@@ -145,7 +145,7 @@
      <script src="{{asset('static/assets/vendor/libs/datatables-responsive/datatables.responsive.js')}}"></script>
      <script src="{{asset('static/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js')}}"></script>
      <script src="{{asset('static/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.js')}}"></script>
-     <script src="{{asset('static/assets/js/extended-ui-sweetalert2.js')}}"></script>
+    <script src="{{asset('static/assets/js/extended-ui-sweetalert2.js')}}"></script>
     <script src="{{asset('static/assets/vendor/libs/sweetalert2/sweetalert2.js')}}"></script>
     <script>
         function delete_function(btn, id) {

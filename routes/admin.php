@@ -83,6 +83,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('store', [AdminController::class,  'documents_store'])->name('documents.store');
             Route::get('edit/{id}', [AdminController::class,  'documents_edit'])->name('documents.edit');
             Route::put('update/{id}', [AdminController::class,  'documents_update'])->name('documents.update');
+
+            Route::post('delete/{id}',[AdminController::class, 'documents_delete'])->name('dpcuments.delete');
         });
         Route::get('get-places',[ApartmentController::class, 'get_places'])->name('places');
 

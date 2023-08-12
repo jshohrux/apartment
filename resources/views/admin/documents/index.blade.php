@@ -48,7 +48,7 @@
                                 </td>
                                 <td>
                                     <a href="{{route('documents.edit',$document->id)}}"><i class="ti ti-pencil me-1"></i></a>
-                                    <a href="$"> <i class="ti ti-trash me-1"></i></a>
+                                    <a href="#"  onclick="delete_function(this, {{ $document->id }})"> <i class="ti ti-trash me-1"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -66,5 +66,65 @@
         <script src="{{asset('static/assets/vendor/libs/datatables-responsive/datatables.responsive.js')}}"></script>
         <script src="{{asset('static/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js')}}"></script>
         <script src="{{asset('static/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.js')}}"></script>
+
+        <script src="{{asset('static/assets/js/extended-ui-sweetalert2.js')}}"></script>
+    <script src="{{asset('static/assets/vendor/libs/sweetalert2/sweetalert2.js')}}"></script>
+    <script>
+        function delete_function(btn, id) {
+            Swal.fire({
+                text: 'Rostan ham o\'chirmoqchimisiz',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ha',
+                cancelButtonText: 'Bekor qlish',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-outline-danger ms-2'
+                },
+                buttonsStyling: false,
+                preConfirm: (login) => {
+                    return fetch(`meyoriy-hujjatlar/delete/` + id, {
+                        method: "POST", headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(response.statusText)
+                            }
+                            return response.json()
+                        })
+                        .catch(error => {
+                            Swal.showValidationMessage(
+                                `Request failed: ${error}`
+                            )
+                        })
+                },
+            }).then(function (result) {
+                if (result.value) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'O\'chirildi!',
+                        text: 'muvofaqqiyatli o\'chirildi',
+                        customClass: {
+                            confirmButton: 'btn btn-success'
+                        },
+                        preConfirm: (login) => {
+                            location.reload();
+                        }
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire({
+                        title: 'Bekor qlindi',
+                        text: 'O\'chirish amali bekor qlindi!!',
+                        icon: 'error',
+                        customClass: {
+                            confirmButton: 'btn btn-success'
+                        }
+                    });
+                }
+            });
+        }
+    </script>
     @endsection
 @endsection
