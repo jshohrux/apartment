@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('rejected',[AdminController::class, 'rejected'])->name('rejected');
 
             Route::get('yangi-arizalar', [AdminController::class, 'new_arizalar'])->name('new_arizalar');
+            Route::post('delete/{id}',[AdminController::class, 'delete'])->name('ariza_delete');
         });
 
 

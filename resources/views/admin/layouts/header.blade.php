@@ -74,23 +74,27 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Arizalar</span>
         </li>
-
+        <li class="menu-item {{ request()->is('admin/arizalar') ? 'active' : ''}}">
+            <a href="{{route('arizalar')}}" class="menu-link">
+              <div>Barcha arizalar</div>
+            </a>
+        </li>
         <li class="menu-item {{ request()->is('admin/arizalar/new*') ? 'active' : ''}}">
             <a href="{{route('new')}}" class="menu-link">
               <div>Yangi arizalar</div>
               <div class="badge bg-label-primary rounded-pill ms-auto" id="count"></div>
             </a>
-          </li>
-          <li class="menu-item {{ request()->is('admin/arizalar/accepted*') ? 'active' : ''}}">
+        </li>
+        <li class="menu-item {{ request()->is('admin/arizalar/accepted*') ? 'active' : ''}}">
             <a href="{{route('accepted')}}" class="menu-link">
               <div>Tasdiqlangan arizalar</div>
             </a>
-          </li>
-          <li class="menu-item {{ request()->is('admin/arizalar/rejected*') ? 'active' : ''}}">
+        </li>
+        <li class="menu-item {{ request()->is('admin/arizalar/rejected*') ? 'active' : ''}}">
             <a href="{{route('rejected')}}" class="menu-link">
               <div>Rad etilgan arizalar</div>
             </a>
-          </li>
+        </li>
     </ul>
 </aside>
 

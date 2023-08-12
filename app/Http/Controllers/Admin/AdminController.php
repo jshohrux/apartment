@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
+
 class AdminController extends Controller
 {
     //
@@ -257,5 +258,24 @@ class AdminController extends Controller
         $turtinchi = Ariza::where('course',4)->count();
 
         return view('admin.statistics.course', compact('birinchi','ikkinchi','uchinchi','turtinchi'));
+    }
+
+    public function delete(Request $request){
+        $ariza = Ariza::findOrfail($request->id);
+        if(!is_null($ariza->file)){
+            if(Storage::exists($ariza->file)){
+                Storage::delete($ariza->file);
+            }
+        }
+        if(!is_null($ariza->photo)){
+            if(Storage::exists($ariza->photo)){
+                Storage::delete($ariza->photo);
+            }
+        }
+        $ariza->delete();
+        return response()->json([
+            'status'=>1,
+            'message'=>'ok'
+        ]);
     }
 }

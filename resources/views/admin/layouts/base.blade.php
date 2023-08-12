@@ -42,6 +42,8 @@
     <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/toastr/toastr.css')}}" />
     <!-- Helpers -->
     <script src="{{asset('static/assets/vendor/js/helpers.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('static/assets/vendor/libs/sweetalert2/sweetalert2.css')}}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->

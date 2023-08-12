@@ -68,7 +68,7 @@
                         <div class="text-center">
                         <h5>Qavat</h5>
                         <p class="mb-lg-0">
-                            {{$my_ariza->floor ? $my_ariza->floor."-Qavat" : ''}}
+                            {{$my_ariza->place ? $my_ariza->place->name."-Qavat" : ''}}
                         </p>
                         </div>
                     </div>
