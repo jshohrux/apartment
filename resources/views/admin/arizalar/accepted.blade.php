@@ -79,6 +79,7 @@
                         <th>Mutaxasislik</th>
                         <th>Jins</th>
                         <th>Status</th>
+                        <th>Izoh</th>
                         <th>Yotoqxona</th>
                         <th>Qavat</th>
                         <th>Amallar</th>
@@ -120,6 +121,9 @@
                                 @endif
                             </td>
                             <td>
+                                {{$ariza->description}}
+                            </td>
+                            <td style="word-wrap: break-word;">
                                 {{$ariza->apartment->name}}
                             </td>
                             <td>
