@@ -42,13 +42,20 @@ class StudentController extends Controller
         $ariza = Ariza::where('user_id',auth()->id())->where('status',1)->first();
 
         if($ariza){
-            return view('send_form')->with('success','Siz arizangiz qabul qilingan!!');
+            return view('send_form')->with('success','Sizning arizangiz qabul qilingan!!!');
         }
 
         return view('send_form', compact('faculties','speciality','regions','districts'));
     }
 
     public function store_form(Request $request){
+        $user = Auth::user();
+        $ariza = Ariza::where('user_id',$user->id)
+                ->where('status',0)->first();
+        if($ariza){
+            return view('send_form')->with('success','Siz ariza yuborgansiz. Arizangiz 24 soat ichida ko\'rib chiqiladi!!');
+        }
+
         $request->validate([
             'fullname'=>'required',
             'birthday'=>'required|date',

@@ -30,6 +30,16 @@
                                   </div>
                               @endif
                           </div>
+
+                          <div class="mb-4">
+                            <label class="form-label" for="name">Yangi parolni kiriting (agar parolni o'zgartirmochi bo'lmasangiz shunchaki bo'sh qoldiring)</label>
+                            <input type="text" class="form-control">
+                            @if($errors->has('name'))
+                                <div class="invalid-feedback d-block">
+                                    {{$errors->first('name')}}
+                                </div>
+                            @endif
+                        </div>
                           <button type="submit" class="btn btn-success">Saqlash</button>
                       </form>
                     </div>

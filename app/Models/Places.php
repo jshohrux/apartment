@@ -20,6 +20,6 @@ class Places extends Model
     }
 
     public function arizalar(){
-        return $this->hasMany(Ariza::class, 'floor','name');
+        return $this->hasMany(Ariza::class, 'floor');
     }
 }

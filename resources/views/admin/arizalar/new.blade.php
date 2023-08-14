@@ -18,6 +18,7 @@
                     </caption>
                     <thead class="table-info">
                     <tr>
+                        <th>#</th>
                         <th>Ism familya</th>
                         <th>Telefon raqami</th>
                         <th>Fakulteti</th>
@@ -28,8 +29,11 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @foreach($arizalar as $ariza)
+                    @foreach($arizalar as $key=>$ariza)
                         <tr>
+                            <td>
+                                {{++$key}}
+                            </td>
                             <td>
                                 <strong>
                                     {{$ariza->fullname}}
@@ -46,7 +50,7 @@
                             </td>
 
                             <td>
-                                {{ date('d/m/Y h:m:s',strtotime($ariza->created_at))}}
+                                {{ date('d/m/Y',strtotime($ariza->created_at))}}
                             </td>
                             <td>
                                 @if($ariza->status==0)

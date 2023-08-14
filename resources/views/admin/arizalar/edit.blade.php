@@ -3,7 +3,7 @@
     <!-- Content -->
 
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3"><span class="text-muted fw-light">Bosh sahifa/</span> Fakultet yaratish</h4>
+        <h4 class="fw-bold py-3"><span class="text-muted fw-light">Bosh sahifa/</span> Arizani tekshirish</h4>
         <!-- Multi Column with Form Separator -->
         <div class="card">
             <div class="col-xl-12 col-lg-5 col-md-5">
@@ -19,6 +19,9 @@
                                     />
                                 </div>
                                 <div class="mt-2">Rasm</div>
+                                <div>
+                                    <a href="{{url(Storage::url($ariza->photo))}}">Yuklab olish</a>
+                                </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-5">
                                 <small class="card-text text-uppercase">Talaba xaqida</small>
