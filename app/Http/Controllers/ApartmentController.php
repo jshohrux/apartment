@@ -135,7 +135,7 @@ class ApartmentController extends Controller
         $str = "";
         foreach ($places as $value){
             $arizalar = Ariza::where('apartment_id',$request->id)
-                        ->where('floor',$value->name)->count();
+                        ->where('floor',$value->id)->count();
             $str .= '<option value="'.$value->id.'">'.$value->name.'-qavat ('.$value->count-$arizalar.' ta bo\'sh joy)</option>';
          }
         echo $str;
