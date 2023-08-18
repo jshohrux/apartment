@@ -1,14 +1,14 @@
 @extends('layouts.base')
 @section('content')
     <!-- Content -->
-
     <div class="container-fluid flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Bosh sahifa/</span> Ariza yuborish</h4>
-
-        @if(!empty($success))
-            <div class="alert alert-success">{{ $success }}</div>
+        @if($status==0)
+            <div class="alert alert-warning">Ariza yuborish vaqtinchalik to'xtatilgan!!!</div>
         @else
-        <!-- Multi Column with Form Separator -->
+            @if(!empty($success))
+                <div class="alert alert-success">{{ $success }}</div>
+            @else
             <div class="card mb-4">
             <h5 class="card-header">Formani to'ldiring</h5>
             <form class="card-body" action="{{route('ariza_saqlash')}}" method="POST" enctype="multipart/form-data">
@@ -186,6 +186,7 @@
                 </div>
             </form>
             </div>
+            @endif
         @endif
 
       </div>

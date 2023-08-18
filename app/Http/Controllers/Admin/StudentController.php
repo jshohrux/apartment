@@ -45,7 +45,8 @@ class StudentController extends Controller
             return view('send_form')->with('success','Sizning arizangiz qabul qilingan!!!');
         }
 
-        return view('send_form', compact('faculties','speciality','regions','districts'));
+        $status = 0;
+        return view('send_form', compact('faculties','speciality','regions','districts','status'));
     }
 
     public function store_form(Request $request){
