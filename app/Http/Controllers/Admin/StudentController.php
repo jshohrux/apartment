@@ -34,18 +34,17 @@ class StudentController extends Controller
         $districts = District::all();
 
         $ariza = Ariza::where('user_id',auth()->id())->where('status',0)->first();
-
+        $status = 1;
         if($ariza){
-            return view('send_form')->with('success','Siz ariza yuborgansiz. Arizangiz 24 soat ichida ko\'rib chiqiladi!!');
+            return view('send_form',compact('status'))->with('success','Siz ariza yuborgansiz. Arizangiz 24 soat ichida ko\'rib chiqiladi!!');
         }
-
         $ariza = Ariza::where('user_id',auth()->id())->where('status',1)->first();
 
         if($ariza){
-            return view('send_form')->with('success','Sizning arizangiz qabul qilingan!!!');
+            return view('send_form',compact('status'))->with('success','Sizning arizangiz qabul qilingan!!!');
         }
 
-        $status = 0;
+
         return view('send_form', compact('faculties','speciality','regions','districts','status'));
     }
 
