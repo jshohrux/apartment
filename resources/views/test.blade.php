@@ -94,14 +94,14 @@
                     <h4>Universitet talabalar turar joyiga birinchi navbatda quyidagi mezonlar asosida joylashtiriladi.</h4>
                     <ul style="list-style: none">
                         <li>- Kam ta’minlangan oilafarzandlari</li>
-                        <li>- Bo‘quvchisini yo‘qotgan ko‘p bolali oila farzandlari</li>
+                        <li>- Boquvchisini yo‘qotgan ko‘p bolali oila farzandlari</li>
                         <li>- I va II guruh nogironligi bo‘lgan talaba</li>
                         <li>- To‘liq davlat ta’minotida bo‘lgan (chin yetim)</li>
                         <li>- Oilasida 2 va undan ortiq to‘lov-kontrakt asosida ta’lim oluvchi talaba</li>
                         <li>- “Temir daftar”ga tushgan oila farzandi</li>
                         <li>- Ota-onasining doimiy ish joyi mavjud bo‘lmagan talaba</li>
                         <li>- Oilasida I va II guruh nogironligi yoki surunkali kasallik bilan davolanadigani mavjud bo‘lgan talaba
-                        
+
                     </ul>
                     <h4>Talabalar turar joylarida istiqomat qilish uchun kimlarga imtiyoz beriladi ?</h4>
                     <ul style="list-style: none">
@@ -139,7 +139,7 @@
                 <div class="card mb-3">
                   <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/3.png')}}" alt="Card image cap" />
                   <div class="card-body">
-                    <h5 class="card-title text-center">Workaut maydonchasi</h5>
+                    <h5 class="card-title text-center">Workout maydonchasi</h5>
                   </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
                 <div class="card mb-3">
                   <img class="card-img-top" src="{{asset('static/assets/img/elements/yotoqxona/4.png')}}" alt="Card image cap" />
                   <div class="card-body">
-                    <h5 class="card-title text-center">Talabalar oshxona</h5>
+                    <h5 class="card-title text-center">Talabalar oshxonasi</h5>
                   </div>
                 </div>
             </div>
