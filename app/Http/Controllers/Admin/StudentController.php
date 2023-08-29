@@ -34,7 +34,7 @@ class StudentController extends Controller
         $districts = District::all();
 
         $ariza = Ariza::where('user_id',auth()->id())->where('status',0)->first();
-        $status = 1;
+        $status = 0;
         if($ariza){
             return view('send_form',compact('status'))->with('success','Siz ariza yuborgansiz. Arizangiz 24 soat ichida ko\'rib chiqiladi!!');
         }
@@ -43,8 +43,6 @@ class StudentController extends Controller
         if($ariza){
             return view('send_form',compact('status'))->with('success','Sizning arizangiz qabul qilingan!!!');
         }
-
-
         return view('send_form', compact('faculties','speciality','regions','districts','status'));
     }
 

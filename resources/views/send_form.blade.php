@@ -4,7 +4,12 @@
     <div class="container-fluid flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Bosh sahifa/</span> Ariza yuborish</h4>
         @if($status==0)
-            <div class="alert alert-warning">Ariza yuborish vaqtinchalik to'xtatilgan!!!</div>
+            <div class="container mt-5 pt-5">
+                <div class="alert alert-danger text-center">
+                    <h2 class="display-3">404</h2>
+                    <p class="display-5">Oops! Something is wrong.</p>
+                </div>
+            </div>
         @else
             @if(!empty($success))
                 <div class="alert alert-success">{{ $success }}</div>
